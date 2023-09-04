@@ -8,9 +8,17 @@
 }
 
 .gallery {
-  position: 'absolute';
+  position: 'relative';
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: -1;
+}
+
+.link {
+  position: relative;
+  color: aqua;
+  font-size: 2rem;
+  z-index: 1;
 }

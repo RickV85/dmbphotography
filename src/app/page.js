@@ -4,19 +4,21 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div style={{ position: "relative" }}>
-        <div className={styles.gallery} style={{zIndex: -1}}>
+      <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
+        <div className={styles.gallery} >
+          <a className={styles.link} href="/architecture">
+            TEST
+          </a>
           <Image
-            src="/images/DMB_9836.jpg" // Use your actual image path
+            src="/images/DMB_9836.jpg"
             layout="fill"
-            objectFit="cover" // Cover the entire div, cropping if necessary
-            objectPosition="center" // Center the image
+            objectFit="cover"
+            objectPosition="center"
             quality={100}
-            priority={true} // Load the image with priority
+            priority={true}
+            alt={`image gallery of Dave's work`}
           />
         </div>
-
-        {`Test`}
       </div>
     </main>
   );
