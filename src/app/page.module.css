@@ -3,23 +3,36 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
   min-height: 100vh;
   background-color: #272727;
 }
 
-.gallery {
+.layout {
   width: 100vw;
   height: 100vh;
+  position: relative;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+.gallery {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
 .nav-background {
   width: 100vw;
   height: 85px;
-  z-index: 1;
+  position: absolute;
+  z-index: 2;
 
   display: flex;
   align-items: center;
@@ -73,9 +86,11 @@
 }
 
 .footer-background {
+  position: absolute;
+  bottom: 0;
   width: 100vw;
   height: fit-content;
-  z-index: 1;
+  z-index: 2;
 
   padding: 1px;
 
