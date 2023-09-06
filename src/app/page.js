@@ -24,6 +24,12 @@ export default function Home() {
             priority={true}
             alt={`image gallery of Dave's work`}
           />
+          {/* Make this footer a component, same as nav */}
+          <footer>
+            <h3>Based in Denver, CO</h3>
+            <h3>{`(303) 807-8479`}</h3>
+            <h3>dbuddphoto@me.com</h3>
+          </footer>
         </div>
       </div>
     </main>
