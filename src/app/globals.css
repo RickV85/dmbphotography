@@ -96,6 +96,21 @@ h1 {
   color: #ffffff;
 }
 
+h2 {
+
+}
+
+h3 {
+font-family: 'Copperplate';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 16px;
+text-align: center;
+
+color: #FFFFFF;
+}
+
 /* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

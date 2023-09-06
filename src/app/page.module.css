@@ -8,43 +8,30 @@
 }
 
 .gallery {
-  position: "relative";
-  top: 0;
-  left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
-}
 
-.link {
-  position: relative;
-  color: aqua;
-  font-size: 2rem;
-  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .nav-background {
-  position: absolute;
   width: 100vw;
   height: 85px;
-  left: 0px;
-  top: 0px;
+  z-index: 1;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
 }
 
 .site-title {
-  /* position: absolute; */
   width: 179px;
   height: 46px;
   margin: 0px 0px 0px 20px;
-  /* left: 19px;
-  top: 14px; */
 }
 
 .hamburger-menu {
@@ -83,4 +70,14 @@
   background: #d9d9d9;
   border: 1px solid #ffffff;
   z-index: 2;
+}
+
+.footer-background {
+  width: 100vw;
+  height: fit-content;
+  z-index: 1;
+
+  padding: 1px;
+
+  background: rgba(0, 0, 0, 0.5);
 }

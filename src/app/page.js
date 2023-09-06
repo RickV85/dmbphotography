@@ -19,14 +19,14 @@ export default function Home() {
             src="/images/DMB_9836.jpg"
             layout="fill"
             objectFit="cover"
-            objectPosition="center"
+            objectPosition="-280px center"
             quality={100}
             priority={true}
             alt={`image gallery of Dave's work`}
           />
           {/* Make this footer a component, same as nav */}
-          <footer>
-            <h3>Based in Denver, CO</h3>
+          <footer className={styles['footer-background']}>
+            <h3>Based in Denver, Colorado</h3>
             <h3>{`(303) 807-8479`}</h3>
             <h3>dbuddphoto@me.com</h3>
           </footer>
