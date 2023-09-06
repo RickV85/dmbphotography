@@ -85,6 +85,17 @@ body {
   overflow-x: hidden;
 }
 
+h1 {
+  font-family: "Copperplate";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 25px;
+  text-align: center;
+
+  color: #ffffff;
+}
+
 /* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
