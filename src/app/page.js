@@ -5,6 +5,8 @@ import styles from "./page.module.css";
 import { useEffect } from "react";
 
 export default function Home() {
+  const windowHeight = window.innerHeight;
+
   useEffect(() => {
     const updateViewHeight = () => {
       const vh = window.innerHeight * 0.01;
@@ -46,7 +48,7 @@ export default function Home() {
               <h3>Based in Denver, Colorado</h3>
               <h3>{`(303) 807-8479`}</h3>
               <h3>dbuddphoto@me.com</h3>
-              <p style={{'text-align': 'center'}}>{`window height: ${window.innerHeight}`}</p>
+              <p style={{'textAlign': 'center'}}>{`WINDOW HEIGHT: ${windowHeight}`}</p>
             </footer>
           </div>
         </main>
