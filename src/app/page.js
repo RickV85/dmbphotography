@@ -1,9 +1,36 @@
+'use client';
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  const updateDimensions = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    setDimensions({ width, height });
+  };
+
+  useEffect(() => {
+    updateDimensions();
+
+    window.addEventListener('resize', updateDimensions);
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+    };
+  }, []);
+
   return (
-    <main className={styles.main}>
+    <main
+      className={styles.main}
+      style={{
+        width: `${dimensions.width}px`,
+        height: `${dimensions.height}px`,
+      }}
+    >
       <div className={styles.layout}>
         {/* Make this nav a component to reuse on all pages */}
         <nav className={styles["nav-background"]}>
