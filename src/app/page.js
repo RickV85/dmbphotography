@@ -9,19 +9,22 @@ export default function Home() {
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
-    setWindowHeight(window.innerHeight);
-    setWindowWidth(window.innerWidth);
-
-    const updateViewHeight = () => {
+    const updateViewport = () => {
       const vh = window.innerHeight * 0.01;
+      const vw = window.innerWidth * 0.01;
+  
       document.documentElement.style.setProperty('--vh', `${vh}px`);
+      document.documentElement.style.setProperty('--vw', `${vw}px`);
+  
+      setWindowHeight(window.innerHeight);
+      setWindowWidth(window.innerWidth);
     };
     
-    updateViewHeight();
-
-    window.addEventListener('resize', updateViewHeight);
-
-    return () => window.removeEventListener('resize', updateViewHeight);
+    updateViewport();
+  
+    window.addEventListener('resize', updateViewport);
+  
+    return () => window.removeEventListener('resize', updateViewport);
   }, []);
 
   return (
