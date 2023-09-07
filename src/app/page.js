@@ -6,9 +6,11 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [windowHeight, setWindowHeight] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
     setWindowHeight(window.innerHeight);
+    setWindowWidth(window.innerWidth);
 
     const updateViewHeight = () => {
       const vh = window.innerHeight * 0.01;
@@ -45,12 +47,14 @@ export default function Home() {
               priority={true}
               alt={`image gallery of David's work`}
             />
+            <p style={{textAlign: 'center', fontSize: '24px', color: 'red', backgroundColor: 'black', zIndex: '3', position: 'absolute', top: '200px'}}>{`WINDOW HEIGHT: ${windowHeight}`}</p>
+            <p style={{textAlign: 'center', fontSize: '24px', color: 'red', backgroundColor: 'black', zIndex: '3', position: 'absolute', top: '230px'}}>{`WINDOW WIDTH: ${windowWidth}`}</p>
+
             {/* Make this footer a component, same as nav */}
             <footer className={styles["footer-background"]}>
               <h3>Based in Denver, Colorado</h3>
               <h3>{`(303) 807-8479`}</h3>
               <h3>dbuddphoto@me.com</h3>
-              <p style={{textAlign: 'center', fontSize: '16px'}}>{`WINDOW HEIGHT: ${windowHeight}`}</p>
             </footer>
           </div>
         </main>
