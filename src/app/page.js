@@ -1,44 +1,44 @@
-"use client";
+// "use client";
 
 import Image from "next/image";
 import styles from "./page.module.css";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 export default function Home() {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  // const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-  const updateDimensions = () => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    setDimensions({ width, height });
-  };
+  // const updateDimensions = () => {
+  //   const width = window.innerWidth;
+  //   const height = window.innerHeight;
+  //   setDimensions({ width, height });
+  // };
 
-  useEffect(() => {
-    updateDimensions();
+  // useEffect(() => {
+  //   updateDimensions();
 
-    window.addEventListener("resize", updateDimensions);
+  //   window.addEventListener("resize", updateDimensions);
 
-    return () => {
-      window.removeEventListener("resize", updateDimensions);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", updateDimensions);
+  //   };
+  // }, []);
 
   return (
-    <div
-      style={{
-        width: `${dimensions.width}px`,
-        height: `${dimensions.height}px`,
-        position: "relative",
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          overflow: "hidden",
-        }}
-      >
+    // <div
+    //   style={{
+    //     width: `${dimensions.width}px`,
+    //     height: `${dimensions.height}px`,
+    //     position: "relative",
+    //   }}
+    // >
+    //   <div
+    //     style={{
+    //       width: "100%",
+    //       height: "100%",
+    //       position: "absolute",
+    //       overflow: "hidden",
+    //     }}
+    //   >
         <main className={styles.main}>
           <div className={styles.layout}>
             {/* Make this nav a component to reuse on all pages */}
@@ -69,7 +69,7 @@ export default function Home() {
             </footer>
           </div>
         </main>
-      </div>
-    </div>
+    //   </div>
+    // </div>
   );
 }
