@@ -46,7 +46,7 @@ export default function Home() {
               <h3>Based in Denver, Colorado</h3>
               <h3>{`(303) 807-8479`}</h3>
               <h3>dbuddphoto@me.com</h3>
-              <p>{`window height: ${window.innerHeight}`}</p>
+              <p style={{'text-align': 'center'}}>{`window height: ${window.innerHeight}`}</p>
             </footer>
           </div>
         </main>

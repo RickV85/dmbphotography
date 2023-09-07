@@ -21,9 +21,9 @@ h1 {
   color: #ffffff;
 }
 
-h2 {
+/* h2 {
 
-}
+} */
 
 h3 {
 font-family: 'Copperplate';
@@ -32,6 +32,16 @@ font-weight: 400;
 font-size: 16px;
 line-height: 16px;
 text-align: center;
+
+color: #FFFFFF;
+}
+
+p {
+font-family: 'Georgia';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 23px;
 
 color: #FFFFFF;
 }

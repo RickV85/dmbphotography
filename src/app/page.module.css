@@ -93,7 +93,7 @@
   height: fit-content;
   z-index: 2;
 
-  padding: 3px 0px 3px 0px;
+  padding: 1px 0px 3px 0px;
 
   background: rgba(0, 0, 0, 0.5);
 }
