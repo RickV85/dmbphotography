@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import styles from "./page.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const windowHeight = window.innerHeight;
+  const [windowHeight, setWindowHeight] = useState(0);
 
   useEffect(() => {
+    setWindowHeight(window.innerHeight);
+
     const updateViewHeight = () => {
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -48,7 +50,7 @@ export default function Home() {
               <h3>Based in Denver, Colorado</h3>
               <h3>{`(303) 807-8479`}</h3>
               <h3>dbuddphoto@me.com</h3>
-              <p style={{'textAlign': 'center'}}>{`WINDOW HEIGHT: ${windowHeight}`}</p>
+              <p style={{textAlign: 'center', fontSize: '16px'}}>{`WINDOW HEIGHT: ${windowHeight}`}</p>
             </footer>
           </div>
         </main>
