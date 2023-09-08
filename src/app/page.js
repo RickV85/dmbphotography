@@ -1,15 +1,11 @@
-// Remove when done with responsive styling
+// Remove if/when any state/useEffects are removed from this Home component to render page server-side
 "use client";
 
-import Image from "next/image";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
+import HomeSwiper from "./components/HomeSwiper/HomeSwiper";
 
 export default function Home() {
-  // Remove when done with responsive styling
-  const [windowHeight, setWindowHeight] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(0);
-
   useEffect(() => {
     const updateViewport = () => {
       const vh = window.innerHeight * 0.01;
@@ -17,10 +13,6 @@ export default function Home() {
 
       document.documentElement.style.setProperty("--vh", `${vh}px`);
       document.documentElement.style.setProperty("--vw", `${vw}px`);
-
-      // Remove when done with responsive styling
-      setWindowHeight(window.innerHeight);
-      setWindowWidth(window.innerWidth);
     };
 
     updateViewport();
@@ -46,38 +38,7 @@ export default function Home() {
             <div className={styles.line3}></div>
           </div>
         </nav>
-        <Image
-          className={styles.gallery}
-          src="/images/DMB_9836.jpg"
-          width={3600}
-          height={2400}
-          quality={100}
-          priority={true}
-          alt={`image gallery of David's work`}
-        />
-        <p
-          style={{
-            textAlign: "center",
-            fontSize: "24px",
-            color: "red",
-            backgroundColor: "black",
-            zIndex: "3",
-            position: "absolute",
-            top: "200px",
-          }}
-        >{`WINDOW HEIGHT: ${windowHeight}`}</p>
-        <p
-          style={{
-            textAlign: "center",
-            fontSize: "24px",
-            color: "red",
-            backgroundColor: "black",
-            zIndex: "3",
-            position: "absolute",
-            top: "230px",
-          }}
-        >{`WINDOW WIDTH: ${windowWidth}`}</p>
-
+        <HomeSwiper className={styles.gallery} />
         {/* Make this footer a component, same as nav */}
         <footer className={styles["footer-background"]}>
           <h3>Based in Denver, Colorado</h3>
