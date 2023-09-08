@@ -9,15 +9,13 @@ export const metadata = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#272727' },
     { media: '(prefers-color-scheme: dark)', color: '#272727' },
+    { color: '#272727' }
   ],
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <meta name="apple-mobile-web-app-status-bar-style" content="#272727"></meta>
-      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
