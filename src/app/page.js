@@ -1,3 +1,4 @@
+// Remove when done with responsive styling
 "use client";
 
 import Image from "next/image";
@@ -5,6 +6,7 @@ import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 
 export default function Home() {
+  // Remove when done with responsive styling
   const [windowHeight, setWindowHeight] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
 
@@ -16,10 +18,9 @@ export default function Home() {
       document.documentElement.style.setProperty("--vh", `${vh}px`);
       document.documentElement.style.setProperty("--vw", `${vw}px`);
 
+      // Remove when done with responsive styling
       setWindowHeight(window.innerHeight);
       setWindowWidth(window.innerWidth);
-
-      console.log(vh, vw);
     };
 
     updateViewport();

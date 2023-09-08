@@ -6,8 +6,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "David M. Budd Photography",
   description: "Photographer for hire in Denver, CO",
-  themeColor: "#272727",
-  backgroundColor: "#272727"
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#272727' },
+    { media: '(prefers-color-scheme: dark)', color: '#272727' },
+  ],
 };
 
 export default function RootLayout({ children }) {
