@@ -18,6 +18,13 @@ export default function Home() {
   
       setWindowHeight(window.innerHeight);
       setWindowWidth(window.innerWidth);
+
+      console.log(vh, vw)
+      const vhValue = getComputedStyle(document.documentElement).getPropertyValue('--vh');
+      const vwValue = getComputedStyle(document.documentElement).getPropertyValue('--vw');
+  
+      console.log(`--vh: ${vhValue}`);
+      console.log(`--vw: ${vwValue}`);
     };
     
     updateViewport();
