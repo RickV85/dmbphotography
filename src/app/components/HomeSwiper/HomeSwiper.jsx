@@ -19,22 +19,22 @@ export default function HomeSwiper() {
       onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide>
-        <img src="/images/vertical/florissanthornbek_916.jpeg"></img>
+        <img src="/images/vertical/florissanthornbek_916.webp"></img>
       </SwiperSlide>
       <SwiperSlide>
-        <img src="/images/vertical/christy_bcpoint1_916.jpeg"></img>
+        <img src="/images/vertical/christy_bcpoint1_916.webp"></img>
       </SwiperSlide>
       <SwiperSlide>
-        <img src="/images/vertical/4014_916.jpeg"></img>
+        <img src="/images/vertical/4014_916.webp"></img>
       </SwiperSlide>
       <SwiperSlide>
-        <img src="/images/vertical/kotor 916.jpeg"></img>
+        <img src="/images/vertical/kotor 916.webp"></img>
       </SwiperSlide>
       <SwiperSlide>
-        <img src="/images/vertical/Indyplaza 916.jpeg"></img>
+        <img src="/images/vertical/Indyplaza 916.webp"></img>
       </SwiperSlide>
       <SwiperSlide>
-        <img src="/images/vertical/edison7tvfinal_916.jpeg"></img>
+        <img src="/images/vertical/edison7tvfinal_916.webp"></img>
       </SwiperSlide>
     </Swiper>
   );
