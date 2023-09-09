@@ -2,8 +2,9 @@
 "use client";
 
 import styles from "./page.module.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import HomeSwiper from "./components/HomeSwiper/HomeSwiper";
+import Header from "./components/Header/Header";
 
 export default function Home() {
   useEffect(() => {
@@ -30,14 +31,15 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.layout}>
         {/* Make this nav a component to reuse on all pages */}
-        <nav className={styles["nav-background"]}>
+        {/* <nav className={styles["nav-background"]}>
           <h1 className={styles["site-title"]}>David M. Budd Photography</h1>
           <div className={styles["hamburger-menu"]}>
             <div className={styles.line1}></div>
             <div className={styles.line2}></div>
             <div className={styles.line3}></div>
           </div>
-        </nav>
+        </nav> */}
+        <Header />
         <HomeSwiper className={styles.gallery} />
         {/* Make this footer a component, same as nav */}
         <footer className={styles["footer-background"]}>
