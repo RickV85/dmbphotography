@@ -1,5 +1,7 @@
+import Image from 'next/image';
+
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation";
 import "./HomeSwiper.css";
@@ -7,34 +9,33 @@ import "./HomeSwiper.css";
 export default function HomeSwiper() {
   return (
     <Swiper
-      className="mySwiper"
       modules={[Navigation, Autoplay]}
+      className="mySwiper"
       navigation={true}
       autoplay={{
         delay: 3000,
         disableOnInteraction: true,
       }}
       loop={true}
-      onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide>
-        <img src="/images/vertical/florissanthornbek_916.webp"></img>
+        <Image width={810} height={1440} priority="true" src="/images/vertical/florissanthornbek_916.webp" alt="starry night sky" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="/images/vertical/christy_bcpoint1_916.webp"></img>
+        <Image width={3375} height={6000} priority="true" src="/images/vertical/christy_bcpoint1_916.webp" alt="patio with mountain view" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="/images/vertical/4014_916.webp"></img>
+        <Image width={810} height={1440} loading="lazy" src="/images/vertical/4014_916.webp" alt="steam train engine in field" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="/images/vertical/kotor 916.webp"></img>
+        <Image width={810} height={1440} loading="lazy" src="/images/vertical/kotor 916.webp" alt="boat on waterway in front of a mountain" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="/images/vertical/Indyplaza 916.webp"></img>
+        <Image width={809} height={1439} loading="lazy" src="/images/vertical/Indyplaza 916.webp" alt="elevator shaft in an elegant building" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="/images/vertical/edison7tvfinal_916.webp"></img>
+        <Image width={810} height={1440} loading="lazy" src="/images/vertical/edison7tvfinal_916.webp" alt="living room" />
       </SwiperSlide>
     </Swiper>
   );
