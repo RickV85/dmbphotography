@@ -1,10 +1,12 @@
 // Remove if/when any state/useEffects are removed from this Home component to render page server-side
+// Should do so for SEO, move state to a sub component like "layout" div
 "use client";
 
 import styles from "./page.module.css";
 import { useEffect } from "react";
 import HomeSwiper from "./components/HomeSwiper/HomeSwiper";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 export default function Home() {
   useEffect(() => {
@@ -29,24 +31,11 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+      {/* Make layout a component with state so Main loads from server for SEO? */}
       <div className={styles.layout}>
-        {/* Make this nav a component to reuse on all pages */}
-        {/* <nav className={styles["nav-background"]}>
-          <h1 className={styles["site-title"]}>David M. Budd Photography</h1>
-          <div className={styles["hamburger-menu"]}>
-            <div className={styles.line1}></div>
-            <div className={styles.line2}></div>
-            <div className={styles.line3}></div>
-          </div>
-        </nav> */}
         <Header />
         <HomeSwiper className={styles.gallery} />
-        {/* Make this footer a component, same as nav */}
-        <footer className={styles["footer-background"]}>
-          <h3>Based in Denver, Colorado</h3>
-          <h3>{`(303) 807-8479`}</h3>
-          <h3>dbuddphoto@me.com</h3>
-        </footer>
+        <Footer />
       </div>
     </main>
   );
