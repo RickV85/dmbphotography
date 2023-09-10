@@ -1,7 +1,7 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./HomeSwiper.css";
@@ -12,7 +12,7 @@ import "./HomeSwiper.css";
 
 // const cld = new Cloudinary({cloud: {cloudName: 'ddsopsgpi'}});
 
-export default function HomeSwiper() {
+export default function HomeSwiper({ homeImages }) {
   return (
     <Swiper
       modules={[Navigation, Autoplay]}
@@ -23,26 +23,23 @@ export default function HomeSwiper() {
         disableOnInteraction: true,
       }}
       loop={true}
-      onSwiper={(swiper) => console.log(swiper)}
+      onSwiper={(swiper) => {console.log(swiper), console.log(swiper.params.direction)}}
     >
-      <SwiperSlide>
-        <Image width={810} height={1440} priority="true" src="/images/vertical/florissanthornbek_916.webp" alt="starry night sky" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image width={810} height={1440} priority="true" src="/images/vertical/christy_bcpoint1_916.webp" alt="patio with mountain view" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image width={810} height={1440} loading="lazy" src="/images/vertical/4014_916.webp" alt="steam train engine in field" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image width={810} height={1440} loading="lazy" src="/images/vertical/kotor 916.webp" alt="boat on waterway in front of a mountain" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image width={810} height={1440} loading="lazy" src="/images/vertical/Indyplaza 916.webp" alt="elevator shaft in an elegant building" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image width={810} height={1440} loading="lazy" src="/images/vertical/edison7tvfinal_916.webp" alt="living room" />
-      </SwiperSlide>
+      {/* Map an array of img srcs rec'd as props and return SwiperSlides */}
+      {homeImages
+        ? homeImages.map((img, i) => (
+            <SwiperSlide key={i}>
+              <Image
+                width={img.width}
+                height={img.height}
+                priority={img.priority ? img.priority : undefined}
+                loading={img.lazy ? img.lazy : undefined}
+                src={img.src}
+                alt={img.alt}
+              />
+            </SwiperSlide>
+          ))
+        : <></>}
     </Swiper>
   );
 }

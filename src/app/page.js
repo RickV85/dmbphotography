@@ -3,12 +3,17 @@
 "use client";
 
 import styles from "./page.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import HomeSwiper from "./components/HomeSwiper/HomeSwiper";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
+import HomeVertImages from "./HomeVertImages";
+import HomeHorizImages from "./HomeHorizImages";
+
 export default function Home() {
+  const [homeImages, setHomeImages] = useState(null);
+
   useEffect(() => {
     const updateViewport = () => {
       const vh = window.innerHeight * 0.01;
@@ -16,6 +21,12 @@ export default function Home() {
 
       document.documentElement.style.setProperty("--vh", `${vh}px`);
       document.documentElement.style.setProperty("--vw", `${vw}px`);
+
+      if (vw > vh) {
+        setHomeImages(HomeHorizImages);
+      } else {
+        setHomeImages(HomeVertImages);
+      }
     };
 
     updateViewport();
@@ -34,7 +45,7 @@ export default function Home() {
       {/* Make layout a component with state so Main loads from server for SEO? */}
       <div className={styles.layout}>
         <Header />
-        <HomeSwiper className={styles.gallery} />
+        <HomeSwiper className={styles.gallery} homeImages={homeImages} />
         <Footer />
       </div>
     </main>
