@@ -1,4 +1,4 @@
-const HomeHorizImages = [
+const homeHorizImages = [
   {
     priority: "true",
     src: "/images/home/horizontal/florissanthornbek_final webhor.webp",
@@ -43,4 +43,4 @@ const HomeHorizImages = [
   },
 ];
 
-module.exports = HomeHorizImages;
+module.exports = homeHorizImages;

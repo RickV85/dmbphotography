@@ -23,7 +23,7 @@ export default function HomeSwiper({ homeImages }) {
         disableOnInteraction: true,
       }}
       loop={true}
-      onSwiper={(swiper) => {console.log(swiper), console.log(swiper.params.direction)}}
+      onSwiper={(swiper) => {console.log(swiper)}}
     >
       {/* Map an array of img srcs rec'd as props and return SwiperSlides */}
       {homeImages

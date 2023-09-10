@@ -8,8 +8,8 @@ import HomeSwiper from "./components/HomeSwiper/HomeSwiper";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
-import HomeVertImages from "./HomeVertImages";
-import HomeHorizImages from "./HomeHorizImages";
+import homeVertImages from "./HomeVertImages";
+import homeHorizImages from "./HomeHorizImages";
 
 export default function Home() {
   const [homeImages, setHomeImages] = useState(null);
@@ -23,9 +23,9 @@ export default function Home() {
       document.documentElement.style.setProperty("--vw", `${vw}px`);
 
       if (vw > vh) {
-        setHomeImages(HomeHorizImages);
+        setHomeImages(homeHorizImages);
       } else {
-        setHomeImages(HomeVertImages);
+        setHomeImages(homeVertImages);
       }
     };
 
@@ -43,11 +43,9 @@ export default function Home() {
   return (
     <main className={styles.main}>
       {/* Make layout a component with state so Main loads from server for SEO? */}
-      <div className={styles.layout}>
         <Header />
         <HomeSwiper className={styles.gallery} homeImages={homeImages} />
         <Footer />
-      </div>
     </main>
   );
 }

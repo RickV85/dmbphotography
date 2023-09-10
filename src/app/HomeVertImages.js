@@ -1,4 +1,4 @@
-const HomeVertImages = [
+const homeVertImages = [
   {
     priority: "true",
     src: "/images/home/vertical/florissanthornbek_916.webp",
@@ -43,4 +43,4 @@ const HomeVertImages = [
   },
 ];
 
-module.exports = HomeVertImages;
+module.exports = homeVertImages;
