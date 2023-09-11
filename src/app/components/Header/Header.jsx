@@ -13,7 +13,7 @@ export default function Header() {
 
   const handleClickOutside = useCallback(
     (event) => {
-      if (hamMenuOpen && event.target !== `.${styles["dropdown-menu"]}`) {
+      if (hamMenuOpen && event.target.id !== "dropdownMenu") {
         toggleHamMenu();
       }
     },
@@ -45,6 +45,7 @@ export default function Header() {
         </div>
       </div>
       <menu
+        id="dropdownMenu"
         className={`${styles["dropdown-menu"]} ${
           hamMenuOpen ? styles["open"] : ""
         }`}
