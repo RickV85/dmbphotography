@@ -46,6 +46,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.dropdown-menu.open {
+  max-height: 100%;
+  opacity: 1;
 }
 
 .menu-option {

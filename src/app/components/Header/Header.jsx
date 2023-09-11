@@ -22,9 +22,11 @@ export default function Header() {
           />
         </div>
       </div>
-      <menu className={styles["dropdown-menu"]}>
+      <menu className={`${styles["dropdown-menu"]} ${hamMenuOpen ? styles['open'] : ''}`}>
         <line className={styles["dropdown-divider"]}></line>
-        <h2 className={styles["menu-option"]}>Architecture</h2>
+        <a href="/architecture">
+          <h2 className={styles["menu-option"]}>Architecture</h2>
+        </a>
         <h2 className={styles["menu-option"]}>Product</h2>
         <h2 className={styles["menu-option"]}>Landscape</h2>
         <h2 className={styles["menu-option"]}>Lifestyle</h2>
