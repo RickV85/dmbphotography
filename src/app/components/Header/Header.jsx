@@ -1,19 +1,41 @@
 "use client";
-import { useState } from "react";
+
+import { useEffect, useState, useCallback } from "react";
 import styles from "./Header.module.css";
 import { Squash as Hamburger } from "hamburger-react";
 
 export default function Header() {
   const [hamMenuOpen, setHamMenuOpen] = useState(false);
 
-  const toggleHamMenu = () => {
-    setHamMenuOpen(!hamMenuOpen);
-  };
+  const toggleHamMenu = useCallback(() => {
+    setHamMenuOpen((prevHamMenuOpen) => !prevHamMenuOpen);
+  }, []);
+
+  const handleClickOutside = useCallback(
+    (event) => {
+      if (hamMenuOpen && event.target !== `.${styles["dropdown-menu"]}`) {
+        toggleHamMenu();
+      }
+    },
+    [hamMenuOpen, toggleHamMenu]
+  );
+
+  useEffect(() => {
+    if (hamMenuOpen) {
+      document.addEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [hamMenuOpen, handleClickOutside]);
 
   return (
     <nav className={styles["nav-main"]}>
       <div className={styles["nav-background"]}>
-        <h1 className={styles["site-title"]}>David M. Budd Photography</h1>
+        <a href="/">
+          <h1 className={styles["site-title"]}>David M. Budd Photography</h1>
+        </a>
         <div className={styles["hamburger-menu"]}>
           <Hamburger
             color="#ffffff"
@@ -22,7 +44,11 @@ export default function Header() {
           />
         </div>
       </div>
-      <menu className={`${styles["dropdown-menu"]} ${hamMenuOpen ? styles['open'] : ''}`}>
+      <menu
+        className={`${styles["dropdown-menu"]} ${
+          hamMenuOpen ? styles["open"] : ""
+        }`}
+      >
         <line className={styles["dropdown-divider"]}></line>
         <a href="/architecture">
           <h2 className={styles["menu-option"]}>Architecture</h2>
