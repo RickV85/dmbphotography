@@ -20,16 +20,21 @@ h1 {
   font-family: "Copperplate";
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
   line-height: 25px;
   text-align: center;
 
   color: #ffffff;
 }
 
-/* h2 {
+h2 {
+  font-family: "Copperplate";
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px;
+  text-align: center;
 
-} */
+  color: #ffffff;
+}
 
 h3 {
 font-family: 'Copperplate';
