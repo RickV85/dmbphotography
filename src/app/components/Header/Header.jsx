@@ -36,7 +36,7 @@ export default function Header() {
         <a href="/">
           <h1 className={styles["site-title"]}>David M. Budd Photography</h1>
         </a>
-        <div className={styles["hamburger-menu"]}>
+        <div className={styles["hamburger-menu"]} aria-label="Hamburger menu button">
           <Hamburger
             color="#ffffff"
             toggled={hamMenuOpen}
@@ -50,7 +50,7 @@ export default function Header() {
           hamMenuOpen ? styles["open"] : ""
         }`}
       >
-        <line className={styles["dropdown-divider"]}></line>
+        <hr className={styles["dropdown-divider"]}></hr>
         <a href="/architecture">
           <h2 className={styles["menu-option"]}>Architecture</h2>
         </a>
@@ -58,7 +58,7 @@ export default function Header() {
         <h2 className={styles["menu-option"]}>Landscape</h2>
         <h2 className={styles["menu-option"]}>Lifestyle</h2>
         <h2 className={styles["menu-option"]}>About/Contact</h2>
-        <line className={styles["dropdown-divider"]}></line>
+        <hr className={styles["dropdown-divider"]}></hr>
       </menu>
     </nav>
   );

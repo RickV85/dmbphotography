@@ -33,6 +33,7 @@
   height: 3px;
   width: 100%;
   z-index: 3;
+  border: none;
 }
 
 .dropdown-menu {
@@ -60,8 +61,14 @@
 .menu-option {
   width: fit-content;
   padding: 1vh;
-  margin: .5vh;
+  margin: 0.5vh;
   cursor: pointer;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
   font-size: 26px;
 }
+
+/* @media only screen and (min-width: 1024px) {
+  .nav-background {
+    
+  }
+} */
