@@ -6,6 +6,9 @@ import { Squash as Hamburger } from "hamburger-react";
 
 const mobileMenuItems = (
   <>
+    <a href="/architecture">
+      <h2 className={styles["menu-option"]}>Architecture</h2>
+    </a>
     <h2 className={styles["menu-option"]}>Product</h2>
     <h2 className={styles["menu-option"]}>Landscape</h2>
     <h2 className={styles["menu-option"]}>Lifestyle</h2>
@@ -15,6 +18,10 @@ const mobileMenuItems = (
 
 const desktopMenuItems = (
   <>
+    <a href="/architecture">
+      <h2 className={styles["menu-option"]}>Architecture</h2>
+    </a>
+    <h2 className={styles["menu-option"]}>+</h2>
     <h2 className={styles["menu-option"]}>Product</h2>
     <h2 className={styles["menu-option"]}>+</h2>
     <h2 className={styles["menu-option"]}>Landscape</h2>
@@ -75,7 +82,7 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    if (screenWidth > 953) {
+    if (screenWidth >= 1024) {
       setHeaderDisplayMode("desktop");
     } else {
       setHeaderDisplayMode("mobile");
@@ -84,23 +91,9 @@ export default function Header() {
 
   return (
     <nav className={styles["nav-main"]}>
-      <div
-        className={
-          headerDisplayMode === "mobile"
-            ? styles["mobile-nav-background"]
-            : styles["desktop-nav-background"]
-        }
-      >
+      <div className={styles["nav-background"]}>
         <a href="/">
-          <h1
-            className={
-              headerDisplayMode === "mobile"
-                ? styles["mobile-site-title"]
-                : styles["desktop-site-title"]
-            }
-          >
-            David M. Budd Photography
-          </h1>
+          <h1 className={styles["site-title"]}>David M. Budd Photography</h1>
         </a>
         {headerDisplayMode === "mobile" ? (
           <div className={styles["hamburger-menu"]}>
@@ -111,7 +104,9 @@ export default function Header() {
               label="show menu items"
             />
           </div>
-        ) : <menu className={styles['desktop-menu']}>{desktopMenuItems}</menu>}
+        ) : (
+          <menu className={styles["desktop-menu"]}>{desktopMenuItems}</menu>
+        )}
       </div>
       {headerDisplayMode === "mobile" ? (
         <menu
@@ -121,9 +116,6 @@ export default function Header() {
           }`}
         >
           <hr className={styles["dropdown-divider"]}></hr>
-          <a href="/architecture">
-            <h2 className={styles["menu-option"]}>Architecture</h2>
-          </a>
           {mobileMenuItems}
           <hr className={styles["dropdown-divider"]}></hr>
         </menu>
