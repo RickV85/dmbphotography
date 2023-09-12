@@ -82,7 +82,7 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    if (screenWidth >= 1024) {
+    if (screenWidth >= 950) {
       setHeaderDisplayMode("desktop");
     } else {
       setHeaderDisplayMode("mobile");
