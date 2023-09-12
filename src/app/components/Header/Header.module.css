@@ -102,3 +102,19 @@
     padding: 0vh .5vw 1vh .5vw;
   }
 }
+
+@media only screen and (max-width: 949px) and (orientation: landscape) {
+  .site-title {
+    width:fit-content;
+    height: fit-content;
+  }
+
+  .nav-background {
+    height: 50px;
+    display: flex;
+  }
+
+  .dropdown-menu {
+    top: 50px;
+  }
+}
