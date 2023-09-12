@@ -22,11 +22,11 @@ export default function HomeSwiper({ images }) {
 
   useEffect(() => {
     const updateViewport = () => {
-      const vh = window.innerHeight * 0.01;
       const vw = window.innerWidth * 0.01;
+      const vh = window.innerHeight * 0.01;
 
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
       document.documentElement.style.setProperty("--vw", `${vw}px`);
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
 
       if (vw > vh) {
         setHomeImages(images[0]);

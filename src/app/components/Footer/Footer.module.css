@@ -9,3 +9,26 @@
 
   background: rgba(0, 0, 0, 0.5);
 }
+
+.footer-copy {
+  height: fit-content;
+  font-size: 16px;
+}
+
+.pipe-spacers {
+  display: none;
+}
+
+@media only screen and (min-width: 575px) {
+  .footer-background {
+    display: flex;
+    justify-content: center;
+    padding: .5%;
+  }
+
+  .pipe-spacers {
+    display: block;
+    margin: 0% 2% 0% 2%;
+    font-size: 16px;
+  }
+}

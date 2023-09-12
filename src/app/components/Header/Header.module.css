@@ -22,6 +22,7 @@
   height: 46px;
   margin: 0px 0px 0px 20px;
   font-size: 24px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 }
 
 .hamburger-menu {
@@ -33,6 +34,7 @@
   height: 3px;
   width: 100%;
   z-index: 3;
+  border: none;
 }
 
 .dropdown-menu {
@@ -57,11 +59,62 @@
   opacity: 1;
 }
 
+.desktop-menu {
+  display: flex;
+  padding: 0px;
+}
+
 .menu-option {
   width: fit-content;
   padding: 1vh;
-  margin: .5vh;
+  margin: 0.5vh;
   cursor: pointer;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
   font-size: 26px;
+}
+
+@media only screen and (min-width: 950px) {
+  .nav-background {
+    width: 100%;
+    height: 15%;
+    min-height: 95px;
+    position: absolute;
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .site-title {
+    font-size: 58px;
+    width: 100%;
+    height: fit-content;
+    margin: 1vh 0vw 1vh 0vw;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+  }
+
+  .menu-option {
+    margin: 0vh .3vw .5vh .3vw;
+    padding: 0vh .5vw 1vh .5vw;
+  }
+}
+
+@media only screen and (max-width: 949px) and (orientation: landscape) {
+  .site-title {
+    width:fit-content;
+    height: fit-content;
+  }
+
+  .nav-background {
+    height: 50px;
+    display: flex;
+  }
+
+  .dropdown-menu {
+    top: 50px;
+  }
 }
