@@ -4,6 +4,27 @@ import { useEffect, useState, useCallback } from "react";
 import styles from "./Header.module.css";
 import { Squash as Hamburger } from "hamburger-react";
 
+const mobileMenuItems = (
+  <>
+    <h2 className={styles["menu-option"]}>Product</h2>
+    <h2 className={styles["menu-option"]}>Landscape</h2>
+    <h2 className={styles["menu-option"]}>Lifestyle</h2>
+    <h2 className={styles["menu-option"]}>About/Contact</h2>
+  </>
+);
+
+const desktopMenuItems = (
+  <>
+    <h2 className={styles["menu-option"]}>Product</h2>
+    <h2 className={styles["menu-option"]}>+</h2>
+    <h2 className={styles["menu-option"]}>Landscape</h2>
+    <h2 className={styles["menu-option"]}>+</h2>
+    <h2 className={styles["menu-option"]}>Lifestyle</h2>
+    <h2 className={styles["menu-option"]}>+</h2>
+    <h2 className={styles["menu-option"]}>About/Contact</h2>
+  </>
+);
+
 export default function Header() {
   const [hamMenuOpen, setHamMenuOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(undefined);
@@ -16,7 +37,7 @@ export default function Header() {
 
   const handleClickOutside = useCallback(
     (event) => {
-      if (hamMenuOpen && event.target.id !== "dropdownMenu") {
+      if (hamMenuOpen && event.target.id !== "mobileDropdownMenu") {
         toggleHamMenu();
       }
     },
@@ -54,20 +75,32 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    if (screenWidth > 1024) {
+    if (screenWidth > 953) {
       setHeaderDisplayMode("desktop");
-      document.documentElement.style.setProperty("--headerFlexJustify", 'center');
     } else {
       setHeaderDisplayMode("mobile");
-      document.documentElement.style.setProperty("--headerFlexJustify", 'space-between');
     }
   }, [screenWidth]);
 
   return (
     <nav className={styles["nav-main"]}>
-      <div className={styles["nav-background"]}>
+      <div
+        className={
+          headerDisplayMode === "mobile"
+            ? styles["mobile-nav-background"]
+            : styles["desktop-nav-background"]
+        }
+      >
         <a href="/">
-          <h1 className={headerDisplayMode === "mobile" ? styles["mobile-site-title"] : styles["desktop-site-title"]}>David M. Budd Photography</h1>
+          <h1
+            className={
+              headerDisplayMode === "mobile"
+                ? styles["mobile-site-title"]
+                : styles["desktop-site-title"]
+            }
+          >
+            David M. Budd Photography
+          </h1>
         </a>
         {headerDisplayMode === "mobile" ? (
           <div className={styles["hamburger-menu"]}>
@@ -78,24 +111,23 @@ export default function Header() {
               label="show menu items"
             />
           </div>
-        ) : null}
+        ) : <menu className={styles['desktop-menu']}>{desktopMenuItems}</menu>}
       </div>
-      <menu
-        id="dropdownMenu"
-        className={`${styles["dropdown-menu"]} ${
-          hamMenuOpen ? styles["open"] : ""
-        }`}
-      >
-        <hr className={styles["dropdown-divider"]}></hr>
-        <a href="/architecture">
-          <h2 className={styles["menu-option"]}>Architecture</h2>
-        </a>
-        <h2 className={styles["menu-option"]}>Product</h2>
-        <h2 className={styles["menu-option"]}>Landscape</h2>
-        <h2 className={styles["menu-option"]}>Lifestyle</h2>
-        <h2 className={styles["menu-option"]}>About/Contact</h2>
-        <hr className={styles["dropdown-divider"]}></hr>
-      </menu>
+      {headerDisplayMode === "mobile" ? (
+        <menu
+          id="mobileDropdownMenu"
+          className={`${styles["dropdown-menu"]} ${
+            hamMenuOpen ? styles["open"] : ""
+          }`}
+        >
+          <hr className={styles["dropdown-divider"]}></hr>
+          <a href="/architecture">
+            <h2 className={styles["menu-option"]}>Architecture</h2>
+          </a>
+          {mobileMenuItems}
+          <hr className={styles["dropdown-divider"]}></hr>
+        </menu>
+      ) : null}
     </nav>
   );
 }
