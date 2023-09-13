@@ -1,0 +1,38 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  height: calc(var(--vh, 1vh) * 100);
+  width: calc(var(--vw, 1vw) * 100);
+  position: relative;
+  background-color: #272727;
+}
+
+.gallery-background-img {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  z-index: 1;
+  opacity: 50%;
+  filter: blur(2px);
+}
+
+.background-image-container {
+  position: fixed;
+  z-index: 1;
+}
+
+.section-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 30px;
+  text-shadow: 2px 2px 4px black;
+}
