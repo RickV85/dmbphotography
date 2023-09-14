@@ -32,7 +32,7 @@ const desktopMenuItems = (
   </>
 );
 
-export default function Header() {
+export default function Header({ sectionTitle }) {
   const [hamMenuOpen, setHamMenuOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(undefined);
   const [screenHeight, setScreenHeight] = useState(undefined);
@@ -96,14 +96,17 @@ export default function Header() {
           <h1 className={styles["site-title"]}>David M. Budd Photography</h1>
         </a>
         {headerDisplayMode === "mobile" ? (
-          <div className={styles["hamburger-menu"]}>
-            <Hamburger
-              color="#ffffff"
-              toggled={hamMenuOpen}
-              toggle={toggleHamMenu}
-              label="show menu items"
-            />
-          </div>
+          <>
+            <h2 className={styles["section-title"]}>{sectionTitle}</h2>
+            <div className={styles["hamburger-menu"]}>
+              <Hamburger
+                color="#ffffff"
+                toggled={hamMenuOpen}
+                toggle={toggleHamMenu}
+                label="show menu items"
+              />
+            </div>
+          </>
         ) : (
           <menu className={styles["desktop-menu"]}>{desktopMenuItems}</menu>
         )}

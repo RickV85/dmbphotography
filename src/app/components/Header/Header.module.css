@@ -25,6 +25,15 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 }
 
+.section-title {
+  font-size: 18px;
+  color: #f3a712;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+
+  position: absolute;
+  right: 70px;
+}
+
 .hamburger-menu {
   margin: 0px 20px 0px 0px;
 }
@@ -98,14 +107,14 @@
   }
 
   .menu-option {
-    margin: 0vh .3vw .5vh .3vw;
-    padding: 0vh .5vw 1vh .5vw;
+    margin: 0vh 0.3vw 0.5vh 0.3vw;
+    padding: 0vh 0.5vw 1vh 0.5vw;
   }
 }
 
 @media only screen and (max-width: 949px) and (orientation: landscape) {
   .site-title {
-    width:fit-content;
+    width: fit-content;
     height: fit-content;
   }
 

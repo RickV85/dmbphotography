@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function Architecture() {
   return (
     <main className={styles.main}>
-      <Header />
+      <Header sectionTitle="Architecture"/>
       <div className={styles["rotate-message-container"]}>
         <h3>Best viewed in landscape - Rotate device</h3>
       </div>
