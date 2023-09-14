@@ -9,6 +9,9 @@ export default function Architecture() {
   return (
     <main className={styles.main}>
       <Header />
+      <div className={styles["rotate-message-container"]}>
+        <h3>Best viewed in landscape - Rotate device</h3>
+      </div>
       <div className={styles["background-image-container"]}>
         <Image
           priority={true}
@@ -21,7 +24,7 @@ export default function Architecture() {
       </div>
       <GallerySwiper images={{horiz: archHorizImages, vert: archVertImages}} />
       <div className={styles["section-title-container"]}>
-        <h2 className={styles["section-title"]}>Architecture</h2>
+        <h2>Architecture</h2>
       </div>
     </main>
   );
