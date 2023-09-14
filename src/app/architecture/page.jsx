@@ -13,6 +13,7 @@ export default function Architecture() {
         <h3>Best viewed in landscape - Rotate device</h3>
       </div>
       <div className={styles["background-image-container"]}>
+      {/* might need to adjust these fixed vertical dims for bkgd img */}
         <Image
           priority={true}
           src={"/images/home/vertical/Indyplaza 916.webp"}

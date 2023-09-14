@@ -5,9 +5,10 @@ import { useState, useEffect } from "react";
 import "./GallerySwiper.css"
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function GallerySwiper({ images }) {
   const [galleryImages, setGalleryImages] = useState(null);
@@ -37,9 +38,10 @@ export default function GallerySwiper({ images }) {
 
   return (
     <Swiper
-      modules={[Navigation, Autoplay]}
+      modules={[Navigation, Autoplay, Pagination]}
       className="mySwiper"
       navigation={true}
+      pagination={true}
       autoplay={{
         delay: 3000,
         disableOnInteraction: true,
