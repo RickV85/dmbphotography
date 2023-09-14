@@ -9,29 +9,18 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-// Installed Cloudinary - if not using, run "npm uninstall @cloudinary/url-gen @cloudinary/react",
-// and remove from next.config.js
-// import {Cloudinary} from "@cloudinary/url-gen";
-
-// const cld = new Cloudinary({cloud: {cloudName: 'ddsopsgpi'}});
-
-// This might work for gallery sliders too, if so rename SwiperGallery
-// and rename state
-export default function HomeSwiper({ images }) {
-  const [homeImages, setHomeImages] = useState(null);
+export default function GallerySwiper({ images }) {
+  const [galleryImages, setGalleryImages] = useState(null);
 
   useEffect(() => {
     const updateViewport = () => {
-      const vw = window.innerWidth * 0.01;
-      const vh = window.innerHeight * 0.01;
-
-      document.documentElement.style.setProperty("--vw", `${vw}px`);
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
 
       if (vw > vh) {
-        setHomeImages(images[0]);
+        setGalleryImages(images.horiz);
       } else {
-        setHomeImages(images[1]);
+        setGalleryImages(images.vert);
       }
     };
 
@@ -60,8 +49,8 @@ export default function HomeSwiper({ images }) {
         console.log(swiper);
       }}
     >
-      {homeImages ? (
-        homeImages.map((img, i) => (
+      {galleryImages ? (
+        galleryImages.map((img, i) => (
           <SwiperSlide key={i}>
             <Image
               width={img.width}

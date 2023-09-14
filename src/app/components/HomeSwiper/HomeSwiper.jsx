@@ -15,8 +15,6 @@ import "./HomeSwiper.css";
 
 // const cld = new Cloudinary({cloud: {cloudName: 'ddsopsgpi'}});
 
-// This might work for gallery sliders too, if so rename SwiperGallery
-// and rename state
 export default function HomeSwiper({ images }) {
   const [homeImages, setHomeImages] = useState(null);
 
@@ -29,9 +27,9 @@ export default function HomeSwiper({ images }) {
       document.documentElement.style.setProperty("--vh", `${vh}px`);
 
       if (vw > vh) {
-        setHomeImages(images[0]);
+        setHomeImages(images.horiz);
       } else {
-        setHomeImages(images[1]);
+        setHomeImages(images.vert);
       }
     };
 

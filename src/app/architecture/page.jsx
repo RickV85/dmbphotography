@@ -19,7 +19,7 @@ export default function Architecture() {
           className={styles["gallery-background-img"]}
         />
       </div>
-      <GallerySwiper images={[archHorizImages, archVertImages]} />
+      <GallerySwiper images={{horiz: archHorizImages, vert: archVertImages}} />
       <div className={styles["section-title-container"]}>
         <h2 className={styles["section-title"]}>Architecture</h2>
       </div>

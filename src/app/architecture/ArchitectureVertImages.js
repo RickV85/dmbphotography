@@ -1,6 +1,6 @@
 const archVertImages = [
   {
-    loading: "lazy",
+    priority: true,
     src: "/images/home/vertical/edison7tvfinal_916.webp",
     alt: "living room",
     height: 1440,
