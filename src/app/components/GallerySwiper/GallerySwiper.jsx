@@ -2,34 +2,26 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import "./GallerySwiper.css"
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "./HomeSwiper.css";
+import "swiper/css/pagination";
 
-// Installed Cloudinary - if not using, run "npm uninstall @cloudinary/url-gen @cloudinary/react",
-// and remove from next.config.js
-// import {Cloudinary} from "@cloudinary/url-gen";
-
-// const cld = new Cloudinary({cloud: {cloudName: 'ddsopsgpi'}});
-
-export default function HomeSwiper({ images }) {
-  const [homeImages, setHomeImages] = useState(null);
+export default function GallerySwiper({ images }) {
+  const [galleryImages, setGalleryImages] = useState(null);
 
   useEffect(() => {
     const updateViewport = () => {
-      const vw = window.innerWidth * 0.01;
-      const vh = window.innerHeight * 0.01;
-
-      document.documentElement.style.setProperty("--vw", `${vw}px`);
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
 
       if (vw > vh) {
-        setHomeImages(images.horiz);
+        setGalleryImages(images.horiz);
       } else {
-        setHomeImages(images.vert);
+        setGalleryImages(images.vert);
       }
     };
 
@@ -46,9 +38,10 @@ export default function HomeSwiper({ images }) {
 
   return (
     <Swiper
-      modules={[Navigation, Autoplay]}
+      modules={[Navigation, Autoplay, Pagination]}
       className="mySwiper"
       navigation={true}
+      pagination={true}
       autoplay={{
         delay: 3000,
         disableOnInteraction: true,
@@ -58,8 +51,8 @@ export default function HomeSwiper({ images }) {
         console.log(swiper);
       }}
     >
-      {homeImages ? (
-        homeImages.map((img, i) => (
+      {galleryImages ? (
+        galleryImages.map((img, i) => (
           <SwiperSlide key={i}>
             <Image
               width={img.width}
