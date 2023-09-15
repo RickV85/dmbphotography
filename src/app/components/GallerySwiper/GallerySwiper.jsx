@@ -15,8 +15,11 @@ export default function GallerySwiper({ images }) {
 
   useEffect(() => {
     const updateViewport = () => {
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
+      const vw = window.innerWidth * 0.01;
+      const vh = window.innerHeight * 0.01;
+
+      document.documentElement.style.setProperty("--vw", `${vw}px`);
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
 
       if (vw > vh) {
         setGalleryImages(images.horiz);
