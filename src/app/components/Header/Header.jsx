@@ -10,7 +10,9 @@ const mobileMenuItems = (
       <h2 className={styles["menu-option"]}>Architecture</h2>
     </a>
     <h2 className={styles["menu-option"]}>Product</h2>
-    <h2 className={styles["menu-option"]}>Landscape</h2>
+    <a href="/travel">
+      <h2 className={styles["menu-option"]}>Travel</h2>
+    </a>
     <h2 className={styles["menu-option"]}>Lifestyle</h2>
     <h2 className={styles["menu-option"]}>About/Contact</h2>
   </>
@@ -24,7 +26,9 @@ const desktopMenuItems = (
     <h2 className={styles["menu-option"]}>+</h2>
     <h2 className={styles["menu-option"]}>Product</h2>
     <h2 className={styles["menu-option"]}>+</h2>
-    <h2 className={styles["menu-option"]}>Landscape</h2>
+    <a href="/travel">
+      <h2 className={styles["menu-option"]}>Travel</h2>
+    </a>
     <h2 className={styles["menu-option"]}>+</h2>
     <h2 className={styles["menu-option"]}>Lifestyle</h2>
     <h2 className={styles["menu-option"]}>+</h2>
