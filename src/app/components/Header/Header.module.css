@@ -119,11 +119,20 @@
   }
 
   .nav-background {
-    height: 50px;
+    height: 35px;
     display: flex;
   }
 
+  .section-title {
+    right: 55px;
+  }
+
   .dropdown-menu {
-    top: 50px;
+    top: 35px;
+  }
+
+  .hamburger-menu {
+    transform: scale(.8);
+    margin-right: 5px;
   }
 }
