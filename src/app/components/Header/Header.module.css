@@ -26,12 +26,7 @@
 }
 
 .section-title {
-  font-size: 18px;
-  color: #f3a712;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-
-  position: absolute;
-  right: 70px;
+  display: none;
 }
 
 .hamburger-menu {
@@ -124,6 +119,12 @@
   }
 
   .section-title {
+    display: block;
+    font-size: 18px;
+    color: #f3a712;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  
+    position: absolute;
     right: 55px;
   }
 
