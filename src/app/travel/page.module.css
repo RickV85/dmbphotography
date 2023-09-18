@@ -27,7 +27,7 @@
   object-fit: cover;
   z-index: 1;
   opacity: 50%;
-  filter: blur(2px);
+  filter: blur(1px);
 }
 
 .background-image-container {
@@ -82,5 +82,9 @@
 
   .gallery-spacer {
     display: none;
+  }
+
+  .gallery-background-img {
+    opacity: 90%;
   }
 }
