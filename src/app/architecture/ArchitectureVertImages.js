@@ -7,7 +7,7 @@ const archVertImages = [
     width: 810
   },
   {
-    priority: "true",
+    priority: true,
     src: "/images/home/vertical/Indyplaza 916.webp",
     alt: "elevator shaft in an elegant building",
     height: 1440,
