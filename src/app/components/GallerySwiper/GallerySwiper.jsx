@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export default function GallerySwiper({ images }) {
-  const [galleryImages, setGalleryImages] = useState(null);
+  const [galleryImages, setGalleryImages] = useState(undefined);
 
   useEffect(() => {
     const updateViewport = () => {

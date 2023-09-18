@@ -18,28 +18,30 @@ const mobileMenuItems = (
   </>
 );
 
-const desktopMenuItems = (
+const desktopMenuItems = (activeMenuItem) => (
   <>
     <a href="/architecture">
-      <h2 className={styles["menu-option"]}>Architecture</h2>
+      <h2 className={`${styles["menu-option"]} ${activeMenuItem === 'Architecture' ? styles['active-section-heading'] : ''}`}>Architecture</h2>
     </a>
     <h2 className={styles["menu-option"]}>+</h2>
-    <h2 className={styles["menu-option"]}>Product</h2>
+    <h2 className={`${styles["menu-option"]} ${activeMenuItem === 'Product' ? styles['active-section-heading'] : ''}`}>Product</h2>
     <h2 className={styles["menu-option"]}>+</h2>
     <a href="/travel">
-      <h2 className={styles["menu-option"]}>Travel</h2>
+      <h2 className={`${styles["menu-option"]} ${activeMenuItem === 'Travel' ? styles['active-section-heading'] : ''}`}>Travel</h2>
     </a>
     <h2 className={styles["menu-option"]}>+</h2>
-    <h2 className={styles["menu-option"]}>Lifestyle</h2>
+    <h2 className={`${styles["menu-option"]} ${activeMenuItem === 'Lifestyle' ? styles['active-section-heading'] : ''}`}>Lifestyle</h2>
     <h2 className={styles["menu-option"]}>+</h2>
-    <h2 className={styles["menu-option"]}>About/Contact</h2>
+    <h2 className={`${styles["menu-option"]} ${activeMenuItem === 'About/Contact' ? styles['active-section-heading'] : ''}`}>About/Contact</h2>
   </>
 );
+
 
 export default function Header({ sectionTitle }) {
   const [hamMenuOpen, setHamMenuOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(undefined);
   const [headerDisplayMode, setHeaderDisplayMode] = useState(undefined);
+  const [activeMenuItem, setActiveMenuItem] = useState(null);
 
   const toggleHamMenu = useCallback(() => {
     setHamMenuOpen((prevHamMenuOpen) => !prevHamMenuOpen);
@@ -74,12 +76,16 @@ export default function Header({ sectionTitle }) {
         );
       case "desktop":
         return (
-          <menu className={styles["desktop-menu"]}>{desktopMenuItems}</menu>
+          <menu className={styles["desktop-menu"]}>{desktopMenuItems(activeMenuItem)}</menu>
         );
       default:
         return null;
     }
-  }, [headerDisplayMode, sectionTitle, hamMenuOpen, toggleHamMenu]);
+  }, [headerDisplayMode, sectionTitle, hamMenuOpen, toggleHamMenu, activeMenuItem]);
+
+  useEffect(() => {
+    setActiveMenuItem(sectionTitle)
+  }, [sectionTitle])
 
   useEffect(() => {
     if (hamMenuOpen) {
