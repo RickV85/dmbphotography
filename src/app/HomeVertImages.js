@@ -10,22 +10,22 @@ const homeVertImages = [
     alt: "patio with mountain view",
   },
   {
-    loading: "lazy",
+    priority: "true",
     src: "/images/home/vertical/4014_916.webp",
     alt: "steam train engine in field",
   },
   {
-    loading: "lazy",
+    priority: "true",
     src: "/images/home/vertical/kotor 916.webp",
     alt: "boat on waterway in front of a mountain",
   },
   {
-    loading: "lazy",
+    priority: "true",
     src: "/images/home/vertical/Indyplaza 916.webp",
     alt: "elevator shaft in an elegant building",
   },
   {
-    loading: "lazy",
+    priority: "true",
     src: "/images/home/vertical/edison7tvfinal_916.webp",
     alt: "living room",
   },
