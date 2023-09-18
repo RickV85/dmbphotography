@@ -96,6 +96,12 @@
     background-color: rgba(0, 0, 0, 0.5);
   }
 
+  /* This loads a blank div to prevent site title from
+  jumping on load */
+  .preload-spacer {
+    height: 36px;
+  }
+
   .site-title {
     font-size: 58px;
     width: 100%;

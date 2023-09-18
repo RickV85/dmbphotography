@@ -59,7 +59,11 @@ export default function Header({ sectionTitle }) {
   const determineDisplayStyling = useCallback(() => {
     switch (headerDisplayMode) {
       case undefined:
-        return null;
+        return (
+          // This loads a blank div to prevent site title from
+          // jumping on load
+          <div className={styles["preload-spacer"]}></div>
+        );
       case "mobile":
         return (
           <>
