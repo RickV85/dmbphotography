@@ -7,7 +7,7 @@ const archHorizImages = [
     height: 810
   },
   {
-    loading: "lazy",
+    priority: "true",
     src: "/images/home/horizontal/edison7tvfinal webhor-2.webp",
     alt: "living room",
     width: 1440,

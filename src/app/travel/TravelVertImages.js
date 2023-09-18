@@ -5,7 +5,7 @@ const travelVertImages = [
     alt: "close up of two bison in snowy landscape",
   },
   {
-    loading: "lazy",
+    priority: "true",
     src: "/images/travel/vertical/efa_superior.webp",
     alt: "storm clouds over the ocean",
   },
