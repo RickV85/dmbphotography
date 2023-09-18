@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: .5% 0% 10px 0%;
+    padding: 10px 0px 15px 0px;
   }
 
   .pipe-spacers {

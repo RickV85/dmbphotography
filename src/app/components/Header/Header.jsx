@@ -39,7 +39,6 @@ const desktopMenuItems = (
 export default function Header({ sectionTitle }) {
   const [hamMenuOpen, setHamMenuOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(undefined);
-  const [screenHeight, setScreenHeight] = useState(undefined);
   const [headerDisplayMode, setHeaderDisplayMode] = useState(undefined);
 
   const toggleHamMenu = useCallback(() => {
@@ -55,51 +54,12 @@ export default function Header({ sectionTitle }) {
     [hamMenuOpen, toggleHamMenu]
   );
 
-  useEffect(() => {
-    if (hamMenuOpen) {
-      document.addEventListener("click", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [hamMenuOpen, handleClickOutside]);
-
-  useEffect(() => {
-    const updateViewport = () => {
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-
-      setScreenWidth(vw);
-      setScreenHeight(vh);
-    };
-
-    updateViewport();
-
-    window.addEventListener("resize", updateViewport);
-    window.addEventListener("orientationchange", updateViewport);
-
-    return () => {
-      window.removeEventListener("resize", updateViewport);
-      window.removeEventListener("orientationchange", updateViewport);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (screenWidth >= 950) {
-      setHeaderDisplayMode("desktop");
-    } else {
-      setHeaderDisplayMode("mobile");
-    }
-  }, [screenWidth]);
-
-  return (
-    <nav className={styles["nav-main"]}>
-      <div className={styles["nav-background"]}>
-        <a href="/">
-          <h1 className={styles["site-title"]}>David M. Budd Photography</h1>
-        </a>
-        {headerDisplayMode === "mobile" ? (
+  const determineDisplayStyling = useCallback(() => {
+    switch (headerDisplayMode) {
+      case undefined:
+        return null;
+      case "mobile":
+        return (
           <>
             <h2 className={styles["section-title"]}>{sectionTitle}</h2>
             <div className={styles["hamburger-menu"]}>
@@ -111,9 +71,61 @@ export default function Header({ sectionTitle }) {
               />
             </div>
           </>
-        ) : (
+        );
+      case "desktop":
+        return (
           <menu className={styles["desktop-menu"]}>{desktopMenuItems}</menu>
-        )}
+        );
+      default:
+        return null;
+    }
+  }, [headerDisplayMode, sectionTitle, hamMenuOpen, toggleHamMenu]);
+
+  useEffect(() => {
+    if (hamMenuOpen) {
+      document.addEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [hamMenuOpen, handleClickOutside]);
+
+  useEffect(() => {
+    const updateScreenWidth = () => {
+      const vw = window.innerWidth;
+
+      setScreenWidth(vw);
+    };
+
+    updateScreenWidth();
+
+    window.addEventListener("resize", updateScreenWidth);
+    window.addEventListener("orientationchange", updateScreenWidth);
+
+    return () => {
+      window.removeEventListener("resize", updateScreenWidth);
+      window.removeEventListener("orientationchange", updateScreenWidth);
+    };
+  }, []);
+
+  // IF BREAKPOINT FOR DESKTOP CHANGES FROM 950PX
+  // THIS NEEDS TO BE UPDATES
+  useEffect(() => {
+    if (screenWidth >= 950) {
+      setHeaderDisplayMode("desktop");
+    } else if (screenWidth < 950) {
+      setHeaderDisplayMode("mobile");
+    }
+  }, [screenWidth]);
+
+  return (
+    <nav className={styles["nav-main"]}>
+      <div className={styles["nav-background"]}>
+        <a href="/">
+          <h1 className={styles["site-title"]}>David M. Budd Photography</h1>
+        </a>
+        {determineDisplayStyling()}
       </div>
       {headerDisplayMode === "mobile" ? (
         <menu
