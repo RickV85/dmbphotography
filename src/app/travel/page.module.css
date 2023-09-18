@@ -64,6 +64,13 @@
   text-shadow: 2px 2px 4px black;
 }
 
+@media only screen and (orientation: landscape) {
+  .rotate-message-container,
+  .section-title-container {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 949px) and (orientation: landscape) {
   .main {
     display: block;
@@ -74,11 +81,6 @@
   }
 
   .gallery-spacer {
-    display: none;
-  }
-
-  .rotate-message-container,
-  .section-title-container {
     display: none;
   }
 }
