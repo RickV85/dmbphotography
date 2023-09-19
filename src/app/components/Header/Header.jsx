@@ -21,21 +21,54 @@ const mobileMenuItems = (
 const desktopMenuItems = (activeMenuItem) => (
   <>
     <a href="/architecture">
-      <h2 className={`${styles["menu-option"]} ${activeMenuItem === 'Architecture' ? styles['active-section-heading'] : ''}`}>Architecture</h2>
+      <h2
+        className={`${styles["menu-option"]} ${
+          activeMenuItem === "Architecture"
+            ? styles["active-section-heading"]
+            : ""
+        }`}
+      >
+        Architecture
+      </h2>
     </a>
     <h2 className={styles["menu-option"]}>+</h2>
-    <h2 className={`${styles["menu-option"]} ${activeMenuItem === 'Product' ? styles['active-section-heading'] : ''}`}>Product</h2>
+    <h2
+      className={`${styles["menu-option"]} ${
+        activeMenuItem === "Product" ? styles["active-section-heading"] : ""
+      }`}
+    >
+      Product
+    </h2>
     <h2 className={styles["menu-option"]}>+</h2>
     <a href="/travel">
-      <h2 className={`${styles["menu-option"]} ${activeMenuItem === 'Travel' ? styles['active-section-heading'] : ''}`}>Travel</h2>
+      <h2
+        className={`${styles["menu-option"]} ${
+          activeMenuItem === "Travel" ? styles["active-section-heading"] : ""
+        }`}
+      >
+        Travel
+      </h2>
     </a>
     <h2 className={styles["menu-option"]}>+</h2>
-    <h2 className={`${styles["menu-option"]} ${activeMenuItem === 'Lifestyle' ? styles['active-section-heading'] : ''}`}>Lifestyle</h2>
+    <h2
+      className={`${styles["menu-option"]} ${
+        activeMenuItem === "Lifestyle" ? styles["active-section-heading"] : ""
+      }`}
+    >
+      Lifestyle
+    </h2>
     <h2 className={styles["menu-option"]}>+</h2>
-    <h2 className={`${styles["menu-option"]} ${activeMenuItem === 'About/Contact' ? styles['active-section-heading'] : ''}`}>About/Contact</h2>
+    <h2
+      className={`${styles["menu-option"]} ${
+        activeMenuItem === "About/Contact"
+          ? styles["active-section-heading"]
+          : ""
+      }`}
+    >
+      About/Contact
+    </h2>
   </>
 );
-
 
 export default function Header({ sectionTitle }) {
   const [hamMenuOpen, setHamMenuOpen] = useState(false);
@@ -80,16 +113,24 @@ export default function Header({ sectionTitle }) {
         );
       case "desktop":
         return (
-          <menu className={styles["desktop-menu"]}>{desktopMenuItems(activeMenuItem)}</menu>
+          <menu className={styles["desktop-menu"]}>
+            {desktopMenuItems(activeMenuItem)}
+          </menu>
         );
       default:
         return null;
     }
-  }, [headerDisplayMode, sectionTitle, hamMenuOpen, toggleHamMenu, activeMenuItem]);
+  }, [
+    headerDisplayMode,
+    sectionTitle,
+    hamMenuOpen,
+    toggleHamMenu,
+    activeMenuItem,
+  ]);
 
   useEffect(() => {
-    setActiveMenuItem(sectionTitle)
-  }, [sectionTitle])
+    setActiveMenuItem(sectionTitle);
+  }, [sectionTitle]);
 
   useEffect(() => {
     if (hamMenuOpen) {
