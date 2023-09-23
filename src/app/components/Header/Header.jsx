@@ -6,11 +6,11 @@ import { Squash as Hamburger } from "hamburger-react";
 
 const mobileMenuItems = (
   <>
-    <a href="/architecture">
+    <a href="/galleries/architecture">
       <h2 className={styles["menu-option"]}>Architecture</h2>
     </a>
     <h2 className={styles["menu-option"]}>Product</h2>
-    <a href="/travel">
+    <a href="/galleries/travel">
       <h2 className={styles["menu-option"]}>Travel</h2>
     </a>
     <h2 className={styles["menu-option"]}>Lifestyle</h2>
