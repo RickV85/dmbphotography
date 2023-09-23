@@ -20,7 +20,7 @@ const mobileMenuItems = (
 
 const desktopMenuItems = (activeMenuItem) => (
   <>
-    <a href="/architecture">
+    <a href="/galleries/architecture">
       <h2
         className={`${styles["menu-option"]} ${
           activeMenuItem === "Architecture"
@@ -40,7 +40,7 @@ const desktopMenuItems = (activeMenuItem) => (
       Product
     </h2>
     <h2 className={styles["menu-option"]}>+</h2>
-    <a href="/travel">
+    <a href="/galleries/travel">
       <h2
         className={`${styles["menu-option"]} ${
           activeMenuItem === "Travel" ? styles["active-section-heading"] : ""
