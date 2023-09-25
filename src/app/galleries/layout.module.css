@@ -13,7 +13,7 @@
 /* Mobile landscape gallery */
 
 @media only screen and (max-width: 949px) and (orientation: landscape) {
-  .main {
+  /* .main {
     display: block;
-  }
+  } */
 }
