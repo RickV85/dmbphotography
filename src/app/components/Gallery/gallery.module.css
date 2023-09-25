@@ -72,7 +72,7 @@
 
 /* Tablet gallery */
 
-@media only screen and (min-width: 500px) and (max-width: 949px) {
+@media only screen and (min-width: 500px) and (max-width: 949px) and (orientation: portrait) {
   .rotate-message-container {
     font-size: 18px;
     top: 90px;
@@ -93,7 +93,7 @@
 @media only screen and (max-width: 949px) and (orientation: landscape) {
 
   .gallery {
-    height: calc(var(--vh, 1vh) * 100);;
+    height: calc(var(--vh, 1vh) * 100);
   }
 
   .gallery-spacer {
