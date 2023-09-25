@@ -93,7 +93,7 @@
 @media only screen and (max-width: 949px) and (orientation: landscape) {
 
   .gallery {
-    height: 100vh;
+    height: 100%;
   }
 
   .gallery-spacer {
