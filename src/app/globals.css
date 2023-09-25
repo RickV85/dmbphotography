@@ -10,10 +10,6 @@
 
 html,
 body {
-  /* Removed to try to address deployed galleries bleeding below
-  viewport on deployed version, no issue on local */
-  /* max-width: calc(var(--vw, 1vw) * 100);
-  max-height: calc(var(--vh, 1vh) * 100); */
   overflow-x: hidden;
   background-color: #272727;
 }
