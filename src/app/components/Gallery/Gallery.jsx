@@ -3,14 +3,6 @@ import Header from "../../components/Header/Header";
 import GallerySwiper from "../../components/GallerySwiper/GallerySwiper";
 import Image from "next/image";
 
-// Props needed to make each unique:
-// sectionTitle
-// backgroundImgSrc
-// backgroundImgAltText
-// backgroundImgDims - Obj w/ width x height
-// gallerySwiperImgs - Obj
-//    horiz: src path, vert: src path
-
 export default function Gallery({ galleryProps }) {
   return (
     <>

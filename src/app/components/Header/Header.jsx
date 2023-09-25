@@ -93,8 +93,7 @@ export default function Header({ sectionTitle }) {
     switch (headerDisplayMode) {
       case undefined:
         return (
-          // This loads a blank div to prevent site title from
-          // jumping on load
+          // This loads a blank div to prevent site title from jumping on load
           <div className={styles["preload-spacer"]}></div>
         );
       case "mobile":
@@ -161,7 +160,7 @@ export default function Header({ sectionTitle }) {
   }, []);
 
   // IF BREAKPOINT FOR DESKTOP CHANGES FROM 950PX
-  // THIS NEEDS TO BE UPDATES
+  // THIS NEEDS TO BE UPDATED
   useEffect(() => {
     if (screenWidth >= 950) {
       setHeaderDisplayMode("desktop");

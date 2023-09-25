@@ -14,7 +14,7 @@
 
 .footer-copy {
   height: fit-content;
-  font-size: 16px;
+  font-size: clamp(10px, 4.2vw, 16px);
   width: fit-content;
 }
 
@@ -35,5 +35,9 @@
     display: block;
     margin: 0% 2% 0% 2%;
     font-size: 16px;
+  }
+
+  .footer-copy {
+    font-size: clamp(16px, 2vw, 22px);
   }
 }

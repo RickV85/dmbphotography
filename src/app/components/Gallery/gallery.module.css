@@ -36,6 +36,8 @@
 }
 
 .gallery-swiper {
+  /* Change <Image /> dims in GallerySwiper component
+   to match if either of these dims are changed  */
   width: 85vw;
   height: calc((var(--vh, 1vh) * 100) - 135px);
   margin: 0vh auto 0vh auto;
@@ -70,7 +72,7 @@
   }
 }
 
-/* Tablet gallery */
+/* Tablet portrait gallery */
 
 @media only screen and (min-width: 500px) and (max-width: 949px) and (orientation: portrait) {
   .rotate-message-container {
