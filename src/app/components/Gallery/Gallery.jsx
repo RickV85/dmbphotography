@@ -1,14 +1,12 @@
-import styles from "./page.module.css";
-import Header from "../components/Header/Header";
-import GallerySwiper from "../components/GallerySwiper/GallerySwiper";
-import archHorizImages from "./ArchitectureHorizImages";
-import archVertImages from "./ArchitectureVertImages";
+import styles from "./gallery.module.css";
+import Header from "../../components/Header/Header";
+import GallerySwiper from "../../components/GallerySwiper/GallerySwiper";
 import Image from "next/image";
 
-export default function Architecture() {
+export default function Gallery({ galleryProps }) {
   return (
-    <main className={styles.main}>
-      <Header sectionTitle="Architecture" />
+    <>
+      <Header sectionTitle={galleryProps.sectionTitle} />
       <div className={styles["rotate-message-container"]}>
         <h3>Best viewed in landscape - Rotate device</h3>
       </div>
@@ -16,10 +14,10 @@ export default function Architecture() {
         {/* might need to adjust these fixed vertical dims for bkgd img */}
         <Image
           priority={true}
-          src={"/images/home/vertical/Indyplaza 916.webp"}
-          alt={"elevator shaft in an elegant building"}
-          height={1440}
-          width={810}
+          src={galleryProps.backgroundImgSrc}
+          alt={galleryProps.backgroundImgAltText}
+          height={galleryProps.backgroundImgDims.height}
+          width={galleryProps.backgroundImgDims.width}
           className={styles["gallery-background-img"]}
         />
       </div>
@@ -27,13 +25,16 @@ export default function Architecture() {
         <div className={styles["gallery-spacer"]}></div>
         <div className={styles["gallery-swiper"]}>
           <GallerySwiper
-            images={{ horiz: archHorizImages, vert: archVertImages }}
+            images={{
+              horiz: galleryProps.gallerySwiperImgs.horiz,
+              vert: galleryProps.gallerySwiperImgs.vert,
+            }}
           />
         </div>
         <div className={styles["section-title-container"]}>
-          <h2>Architecture</h2>
+          <h2>{galleryProps.sectionTitle}</h2>
         </div>
       </section>
-    </main>
+    </>
   );
 }

@@ -9,12 +9,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./HomeSwiper.css";
 
-// Installed Cloudinary - if not using, run "npm uninstall @cloudinary/url-gen @cloudinary/react",
-// and remove from next.config.js
-// import {Cloudinary} from "@cloudinary/url-gen";
-
-// const cld = new Cloudinary({cloud: {cloudName: 'ddsopsgpi'}});
-
 export default function HomeSwiper({ images }) {
   const [homeImages, setHomeImages] = useState(null);
 

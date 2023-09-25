@@ -6,11 +6,11 @@ import { Squash as Hamburger } from "hamburger-react";
 
 const mobileMenuItems = (
   <>
-    <a href="/architecture">
+    <a href="/galleries/architecture">
       <h2 className={styles["menu-option"]}>Architecture</h2>
     </a>
     <h2 className={styles["menu-option"]}>Product</h2>
-    <a href="/travel">
+    <a href="/galleries/travel">
       <h2 className={styles["menu-option"]}>Travel</h2>
     </a>
     <h2 className={styles["menu-option"]}>Lifestyle</h2>
@@ -20,7 +20,7 @@ const mobileMenuItems = (
 
 const desktopMenuItems = (activeMenuItem) => (
   <>
-    <a href="/architecture">
+    <a href="/galleries/architecture">
       <h2
         className={`${styles["menu-option"]} ${
           activeMenuItem === "Architecture"
@@ -40,7 +40,7 @@ const desktopMenuItems = (activeMenuItem) => (
       Product
     </h2>
     <h2 className={styles["menu-option"]}>+</h2>
-    <a href="/travel">
+    <a href="/galleries/travel">
       <h2
         className={`${styles["menu-option"]} ${
           activeMenuItem === "Travel" ? styles["active-section-heading"] : ""
@@ -93,8 +93,7 @@ export default function Header({ sectionTitle }) {
     switch (headerDisplayMode) {
       case undefined:
         return (
-          // This loads a blank div to prevent site title from
-          // jumping on load
+          // This loads a blank div to prevent site title from jumping on load
           <div className={styles["preload-spacer"]}></div>
         );
       case "mobile":
@@ -161,7 +160,7 @@ export default function Header({ sectionTitle }) {
   }, []);
 
   // IF BREAKPOINT FOR DESKTOP CHANGES FROM 950PX
-  // THIS NEEDS TO BE UPDATES
+  // THIS NEEDS TO BE UPDATED
   useEffect(() => {
     if (screenWidth >= 950) {
       setHeaderDisplayMode("desktop");

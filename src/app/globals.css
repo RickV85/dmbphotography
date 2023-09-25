@@ -10,8 +10,6 @@
 
 html,
 body {
-  max-width: calc(var(--vw, 1vw) * 100);
-  max-height: calc(var(--vh, 1vh) * 100);
   overflow-x: hidden;
   background-color: #272727;
 }
@@ -51,16 +49,6 @@ font-size: 20px;
 line-height: 23px;
 
 color: #FFFFFF;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 a {

@@ -45,7 +45,6 @@ export default function GallerySwiper({ images }) {
       className="mySwiper"
       navigation={true}
       pagination={true}
-      // This fixed issue with very small overlap to next slide
       spaceBetween={50}
       autoplay={{
         delay: 3000,
