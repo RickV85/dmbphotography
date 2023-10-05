@@ -59,12 +59,10 @@ export default function GallerySwiper({ images }) {
         galleryImages.map((img, i) => (
           <SwiperSlide key={i}>
             <Image
-              // Dims come from gallery page css
-              // Width currently 85vw, height 100vh - 135px
-              width={window.innerWidth * 0.85}
-              height={window.innerHeight - 135}
+              fill={true}
               priority={img.priority ? img.priority : undefined}
               loading={img.lazy ? img.lazy : undefined}
+              quality={100}
               src={img.src}
               alt={img.alt}
             />

@@ -1,8 +1,8 @@
 const archVertImages = [
   {
     priority: true,
-    src: "/images/home/vertical/edison7tvfinal_916.webp",
-    alt: "living room",
+    src: "/images/architecture/horizontal/edison7tvfinal.jpg",
+    alt: "lounge area"
   },
   {
     priority: true,
