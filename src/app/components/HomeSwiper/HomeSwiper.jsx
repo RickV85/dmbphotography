@@ -56,11 +56,8 @@ export default function HomeSwiper({ images }) {
         homeImages.map((img, i) => (
           <SwiperSlide key={i}>
             <Image
-              // Dims - 100vw x 100vh on home page
-              width={window.innerWidth}
-              height={window.innerHeight}
-              priority={img.priority ? img.priority : undefined}
-              loading={img.lazy ? img.lazy : undefined}
+              fill={true}
+              priority={true}
               src={img.src}
               alt={img.alt}
             />
