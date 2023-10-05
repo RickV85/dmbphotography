@@ -60,6 +60,7 @@ export default function HomeSwiper({ images }) {
               priority={true}
               src={img.src}
               alt={img.alt}
+              quality={100}
             />
           </SwiperSlide>
         ))
