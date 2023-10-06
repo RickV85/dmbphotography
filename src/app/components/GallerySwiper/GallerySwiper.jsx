@@ -60,7 +60,7 @@ export default function GallerySwiper({ images }) {
           <SwiperSlide key={i}>
             <Image
               fill={true}
-              priority={img.priority ? true : null}
+              priority={true}
               quality={100}
               src={img.src}
               alt={img.alt}

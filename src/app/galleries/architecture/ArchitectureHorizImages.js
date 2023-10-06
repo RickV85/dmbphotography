@@ -1,6 +1,5 @@
 const archHorizImages = [
   {
-    priority: true,
     src: "/images/architecture/horizontal/1401Lawrence1.jpg",
     alt: "reception area",
   },

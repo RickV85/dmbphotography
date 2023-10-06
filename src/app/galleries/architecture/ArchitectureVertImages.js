@@ -1,6 +1,5 @@
 const archVertImages = [
   {
-    priority: true,
     src: "/images/architecture/vertical/7595tecnology_1.jpeg",
     alt: "lounge area"
   },
