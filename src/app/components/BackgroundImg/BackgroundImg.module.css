@@ -12,9 +12,3 @@
   opacity: 50%;
   filter: blur(1px);
 }
-/* Not sure why I had this? */
-/* @media only screen and (max-width: 949px) and (orientation: landscape) {
-  .gallery-background-img {
-    opacity: 90%;
-  }
-} */
