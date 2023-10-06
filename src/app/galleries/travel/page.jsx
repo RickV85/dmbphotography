@@ -3,11 +3,26 @@ import travelHorizImages from "./TravelHorizImages";
 import travelVertImages from "./TravelVertImages";
 
 export default function Travel() {
+  const starryHorizImg = travelHorizImages.find((img) => {
+    if (
+      img.src === "/images/travel/horizontal/florissanthornbek_final.webp"
+    ) {
+      return img;
+    }
+  });
+
+  const canyonVertImg = travelVertImages.find((img) => {
+    if (
+      img.src === "/images/travel/vertical/antelopecyn1.jpg"
+    ) {
+      return img;
+    }
+  });
+
   const travelProps = {
     sectionTitle: "Travel",
-    backgroundImgSrc: travelHorizImages[7].src,
-    backgroundImgAltText: travelHorizImages[7].alt,
-    backgroundImgDims: { width: 1440, height: 810 },
+    horizBackgroundImg: starryHorizImg,
+    vertBackgroundImg: canyonVertImg,
     gallerySwiperImgs: { horiz: travelHorizImages, vert: travelVertImages },
   };
 
