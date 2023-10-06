@@ -5,7 +5,7 @@ import archVertImages from "./ArchitectureVertImages";
 export default function Architecture() {
   const christysImg = archHorizImages.find((img) => {
     if (
-      img.src === "/images/architecture/horizontal/Christy_Boulder_10_23_13_7 webhor.jpg"
+      img.src === "/images/architecture/horizontal/Christy_Boulder_10_23_13_7 webhor.webp"
     ) {
       return img;
     }
@@ -13,7 +13,7 @@ export default function Architecture() {
 
   const indyPlazaImg = archVertImages.find((img) => {
     if (
-      img.src === "/images/architecture/vertical/Indyplaza 916.jpg"
+      img.src === "/images/architecture/vertical/Indyplaza 916.webp"
     ) {
       return img;
     }
