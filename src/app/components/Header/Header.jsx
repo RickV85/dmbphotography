@@ -32,13 +32,15 @@ const desktopMenuItems = (activeMenuItem) => (
       </h2>
     </a>
     <h2 className={styles["menu-option"]}>+</h2>
-    <h2
-      className={`${styles["menu-option"]} ${
-        activeMenuItem === "Product" ? styles["active-section-heading"] : ""
-      }`}
-    >
-      Product
-    </h2>
+    <a href="/galleries/product">
+      <h2
+        className={`${styles["menu-option"]} ${
+          activeMenuItem === "Product" ? styles["active-section-heading"] : ""
+        }`}
+      >
+        Product
+      </h2>
+    </a>
     <h2 className={styles["menu-option"]}>+</h2>
     <a href="/galleries/travel">
       <h2
