@@ -21,7 +21,7 @@ const travelHorizImages = [
   },
   {
     src: "/images/travel/horizontal/dbudd_efa100_106.webp",
-    alt: "sunset over a pebbly beach"
+    alt: "sunset over a pebbly beach",
   },
   {
     src: "/images/travel/horizontal/florissanthornbek_final.webp",
@@ -33,17 +33,19 @@ const travelHorizImages = [
   },
   {
     src: "/images/travel/horizontal/navypier.jpg",
-    alt: "ferris wheel at night"
-  },  {
+    alt: "ferris wheel at night",
+  },
+  {
     src: "/images/travel/horizontal/superiordusk.jpg",
-    alt: "Superior Colorado at dusk"
-  },  {
+    alt: "Superior Colorado at dusk",
+  },
+  {
     src: "/images/travel/horizontal/taxicue2.jpg",
-    alt: "blurred image of a passing taxi on a city street"
+    alt: "blurred image of a passing taxi on a city street",
   },
   {
     src: "/images/travel/horizontal/viking22_book_265.webp",
-    alt: "serene waterfall"
+    alt: "serene waterfall",
   },
   {
     src: "/images/travel/horizontal/XPRO6390.webp",
@@ -51,8 +53,8 @@ const travelHorizImages = [
   },
   {
     src: "/images/travel/horizontal/yadvashem_islerock_galleria.jpeg",
-    alt: "3 image compilation - nature and city scapes"
+    alt: "3 image compilation - nature and city scapes",
   },
-]
+];
 
 module.exports = travelHorizImages;

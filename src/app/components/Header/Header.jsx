@@ -9,12 +9,18 @@ const mobileMenuItems = (
     <a href="/galleries/architecture">
       <h2 className={styles["menu-option"]}>Architecture</h2>
     </a>
-    <h2 className={styles["menu-option"]}>Product</h2>
+    <a href="/galleries/product">
+      <h2 className={styles["menu-option"]}>Product</h2>
+    </a>
     <a href="/galleries/travel">
       <h2 className={styles["menu-option"]}>Travel</h2>
     </a>
-    <h2 className={styles["menu-option"]}>Lifestyle</h2>
-    <h2 className={styles["menu-option"]}>About/Contact</h2>
+    <a href="/galleries/lifestyle">
+      <h2 className={styles["menu-option"]}>Lifestyle</h2>
+    </a>
+    <a href="/about">
+      <h2 className={styles["menu-option"]}>About/Contact</h2>
+    </a>
   </>
 );
 
@@ -52,23 +58,27 @@ const desktopMenuItems = (activeMenuItem) => (
       </h2>
     </a>
     <h2 className={styles["menu-option"]}>+</h2>
-    <h2
-      className={`${styles["menu-option"]} ${
-        activeMenuItem === "Lifestyle" ? styles["active-section-heading"] : ""
-      }`}
-    >
-      Lifestyle
-    </h2>
+    <a href="/galleries/lifestyle">
+      <h2
+        className={`${styles["menu-option"]} ${
+          activeMenuItem === "Lifestyle" ? styles["active-section-heading"] : ""
+        }`}
+      >
+        Lifestyle
+      </h2>
+    </a>
     <h2 className={styles["menu-option"]}>+</h2>
-    <h2
-      className={`${styles["menu-option"]} ${
-        activeMenuItem === "About/Contact"
-          ? styles["active-section-heading"]
-          : ""
-      }`}
-    >
-      About/Contact
-    </h2>
+    <a href="/about">
+      <h2
+        className={`${styles["menu-option"]} ${
+          activeMenuItem === "About/Contact"
+            ? styles["active-section-heading"]
+            : ""
+        }`}
+      >
+        About/Contact
+      </h2>
+    </a>
   </>
 );
 
