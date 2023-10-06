@@ -11,11 +11,18 @@ export default function Architecture() {
     }
   });
 
+  const indyPlazaImg = archVertImages.find((img) => {
+    if (
+      img.src === "/images/architecture/vertical/Indyplaza 916.jpg"
+    ) {
+      return img;
+    }
+  });
+
   const architectureProps = {
     sectionTitle: "Architecture",
-    backgroundImgSrc: christysImg.src,
-    backgroundImgAltText: christysImg.alt,
-    backgroundImgDims: { width: 1440, height: 810 },
+    horizBackgroundImg: christysImg,
+    vertBackgroundImg: indyPlazaImg,
     gallerySwiperImgs: { horiz: archHorizImages, vert: archVertImages },
   };
 

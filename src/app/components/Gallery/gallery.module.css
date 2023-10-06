@@ -9,21 +9,6 @@
   text-shadow: 2px 2px 4px black;
 }
 
-.gallery-background-img {
-  height: calc(var(--vh, 1vh) * 100);
-  width: calc(var(--vw, 1vw) * 100);
-  position: relative;
-  object-fit: cover;
-  z-index: 1;
-  opacity: 50%;
-  filter: blur(1px);
-}
-
-.background-image-container {
-  position: fixed;
-  z-index: 1;
-}
-
 .gallery {
   display: flex;
   flex-direction: column;
@@ -100,9 +85,5 @@
 
   .gallery-spacer {
     display: none;
-  }
-
-  .gallery-background-img {
-    opacity: 90%;
   }
 }

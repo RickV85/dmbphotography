@@ -2,6 +2,7 @@ import styles from "./gallery.module.css";
 import Header from "../../components/Header/Header";
 import GallerySwiper from "../../components/GallerySwiper/GallerySwiper";
 import Image from "next/image";
+import BackgroundImg from "../BackgroundImg/BackgroundImg";
 
 export default function Gallery({ galleryProps }) {
   return (
@@ -10,17 +11,10 @@ export default function Gallery({ galleryProps }) {
       <div className={styles["rotate-message-container"]}>
         <h3>Best viewed in landscape - Rotate device</h3>
       </div>
-      <div className={styles["background-image-container"]}>
-        {/* might need to adjust these fixed vertical dims for bkgd img */}
-        <Image
-          priority={true}
-          src={galleryProps.backgroundImgSrc}
-          alt={galleryProps.backgroundImgAltText}
-          height={galleryProps.backgroundImgDims.height}
-          width={galleryProps.backgroundImgDims.width}
-          className={styles["gallery-background-img"]}
-        />
-      </div>
+      <BackgroundImg
+        vertImg={galleryProps.vertBackgroundImg}
+        horizImg={galleryProps.horizBackgroundImg}
+      />
       <section className={styles.gallery}>
         <div className={styles["gallery-spacer"]}></div>
         <div className={styles["gallery-swiper"]}>
