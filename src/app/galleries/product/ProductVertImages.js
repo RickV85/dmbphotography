@@ -1,18 +1,18 @@
 const productVertImages = [
   {
-    src: "/images/product/vertical/christy_bcpoint1_916.jpg",
+    src: "/images/product/vertical/christy_bcpoint1_916.webp",
     alt: "patio furniture with a mountain backdrop",
   },
   {
-    src: "/images/product/vertical/christy601sracest_3.jpg",
+    src: "/images/product/vertical/christy601sracest_3.webp",
     alt: "patio furniture in a backyard",
   },
   {
-    src: "/images/product/vertical/IMG_2379.jpg",
+    src: "/images/product/vertical/IMG_2379.webp",
     alt: "patio furniture with a mountain backdrop",
   },
   {
-    src: "/images/product/vertical/jeep.jpg",
+    src: "/images/product/vertical/jeep.webp",
     alt: "Jeep Wrangler on a rocky trail",
   },
   {
