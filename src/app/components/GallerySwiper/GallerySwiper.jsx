@@ -11,10 +11,20 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export default function GallerySwiper({ images }) {
-  const [galleryImages, setGalleryImages] = useState(undefined);
+  const [ galleryImages, setGalleryImages ] = useState(undefined);
+  const [ mobileRes, setMobileRes ] = useState(true);
 
   useEffect(() => {
     const updateViewport = () => {
+
+      if (window.innerWidth > 550) {
+        console.log("Desktop resolution")
+        setMobileRes(false)
+      } else {
+        console.log("Mobile resolution")
+        setMobileRes(true)
+      }
+
       const vw = window.innerWidth * 0.01;
       const vh = window.innerHeight * 0.01;
 
@@ -61,7 +71,7 @@ export default function GallerySwiper({ images }) {
             <Image
               fill={true}
               priority={true}
-              quality={100}
+              quality={mobileRes ? 25 : 75}
               src={img.src}
               alt={img.alt}
             />

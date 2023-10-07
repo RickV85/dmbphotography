@@ -1,7 +1,6 @@
 import styles from "./gallery.module.css";
 import Header from "../../components/Header/Header";
 import GallerySwiper from "../../components/GallerySwiper/GallerySwiper";
-import Image from "next/image";
 import BackgroundImg from "../BackgroundImg/BackgroundImg";
 
 export default function Gallery({ galleryProps }) {
