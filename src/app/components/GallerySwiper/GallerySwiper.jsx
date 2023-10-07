@@ -16,7 +16,6 @@ export default function GallerySwiper({ images }) {
 
   useEffect(() => {
     const updateViewport = () => {
-
       if (window.innerWidth > 550) {
         console.log("Desktop resolution")
         setMobileRes(false)
@@ -70,7 +69,7 @@ export default function GallerySwiper({ images }) {
           <SwiperSlide key={i}>
             <Image
               fill={true}
-              priority={true}
+              priority={i <= 1 ? true : false}
               quality={mobileRes ? 25 : 75}
               src={img.src}
               alt={img.alt}
