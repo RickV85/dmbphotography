@@ -14,7 +14,7 @@ import Loading from "./Loading";
 export default function GallerySwiper({ images }) {
   const [galleryImages, setGalleryImages] = useState(undefined);
   const [mobileRes, setMobileRes] = useState(true);
-  const loadedImgKeys = useRef([]);
+  // const loadedImgKeys = useRef([]);
   // const isInitialImgLoaded = useRef(false);
 
   useEffect(() => {
@@ -81,7 +81,7 @@ export default function GallerySwiper({ images }) {
               <Image
                 fill={true}
                 priority={true}
-                quality={mobileRes ? 25 : 75}
+                quality={mobileRes ? 20 : 70}
                 src={img.src}
                 alt={img.alt}
                 // onLoadingComplete={() => {
