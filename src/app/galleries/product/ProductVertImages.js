@@ -16,7 +16,7 @@ const productVertImages = [
     alt: "Jeep Wrangler on a rocky trail",
   },
   {
-    src: "/images/product/vertical/Screen Shot 2021-08-18 at 10.13.56 PM.png",
+    src: "/images/product/vertical/Screen Shot 2021-08-18 at 10.13.56 PM.webp",
     alt: "close up of a perfume bottle",
   },
 ]
