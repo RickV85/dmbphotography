@@ -15,7 +15,7 @@ export default function HomeSwiper({ images }) {
 
   useEffect(() => {
     const updateViewport = () => {
-      if (window.innerWidth > 550) {
+      if (window.innerWidth >= 550) {
         console.log("Desktop resolution");
         setMobileRes(false);
       } else if (window.innerWidth < 550 && window.screen.orientation.type === "portrait-primary") {
@@ -69,7 +69,7 @@ export default function HomeSwiper({ images }) {
               priority={true}
               src={img.src}
               alt={img.alt}
-              quality={mobileRes ? 20 : 70}
+              quality={mobileRes ? 20 : 85}
             />
           </SwiperSlide>
         ))

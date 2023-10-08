@@ -19,7 +19,7 @@ export default function GallerySwiper({ images }) {
 
   useEffect(() => {
     const updateViewport = () => {
-      if (window.innerWidth > 550) {
+      if (window.innerWidth >= 550) {
         console.log("Desktop resolution");
         setMobileRes(false);
       } else if (window.innerWidth < 550 && window.screen.orientation.type === "portrait-primary") {
@@ -81,7 +81,7 @@ export default function GallerySwiper({ images }) {
               <Image
                 fill={true}
                 priority={true}
-                quality={mobileRes ? 20 : 70}
+                quality={mobileRes ? 20 : 85}
                 src={img.src}
                 alt={img.alt}
                 // onLoadingComplete={() => {
