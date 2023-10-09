@@ -3,7 +3,8 @@
   height: 100%;
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   transform: scale(50%);
@@ -24,4 +25,17 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.swiper-container {
+  transition: opacity 0.2s ease;
+  overflow: hidden;
+}
+.swiper-visible {
+  height: 100%;
+  opacity: 1;
+}
+.swiper-hidden {
+  height: 0%;
+  opacity: 0;
 }

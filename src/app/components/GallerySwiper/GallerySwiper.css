@@ -39,10 +39,34 @@
   border: 1px solid #000000ce;
 }
 
+.swiper-container {
+  transition: opacity 0.2s ease;
+  overflow: hidden;
+}
+.swiper-visible {
+  height: 100%;
+  opacity: 1;
+}
+.swiper-hidden {
+  height: 0%;
+  opacity: 0;
+}
+
 @media only screen and (max-width: 949px) and (orientation: landscape) {
   .swiper {
     height: calc((var(--vh, 1vh) * 100) - 35px);
-    top: 35px;
     margin: 0px;
+  }
+  .swiper-container {
+    transition: opacity 0.2s ease;
+    overflow: hidden;
+  }
+  .swiper-visible {
+    height: calc(var(--vh, 1vh) * 100);
+    opacity: 1;
+  }
+  .swiper-hidden {
+    height: 0%;
+    opacity: 0;
   }
 }

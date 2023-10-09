@@ -9,6 +9,7 @@ import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
 import Loading from "../Loading/Loading";
 
 export default function GallerySwiper({ images }) {
@@ -16,6 +17,14 @@ export default function GallerySwiper({ images }) {
   const [mobileRes, setMobileRes] = useState(true);
   const [loadedImgKeys, setLoadedImgKeys] = useState([]);
   const [initialImgsLoaded, setInitialImgsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Resets loading state when images swap from horiz
+    // to vertical or vice versa. Images are reloaded
+    // at times when window is resized to match sizing.
+    setInitialImgsLoaded(false);
+    setLoadedImgKeys([]);
+  }, [galleryImages]);
 
   // Can be deleted after build phase
   useEffect(() => {
@@ -25,14 +34,6 @@ export default function GallerySwiper({ images }) {
     }
     console.log(loadedImgKeys);
   }, [loadedImgKeys, initialImgsLoaded]);
-
-  useEffect(() => {
-    // Resets loading state when images swap from horiz
-    // to vertical or vice versa. Images are reloaded
-    // at times when window is resized to match sizing.
-    setInitialImgsLoaded(false);
-    setLoadedImgKeys([]);
-  }, [galleryImages]);
 
   useEffect(() => {
     const updateViewport = () => {
@@ -75,9 +76,9 @@ export default function GallerySwiper({ images }) {
     <>
       {initialImgsLoaded ? null : <Loading />}
       <div
-        style={
-          initialImgsLoaded ? { display: "contents" } : { display: "hidden" }
-        }
+        className={`swiper-container ${
+          initialImgsLoaded ? "swiper-visible" : "swiper-hidden"
+        }`}
       >
         <Swiper
           modules={[Navigation, Autoplay, Pagination]}

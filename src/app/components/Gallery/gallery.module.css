@@ -77,12 +77,15 @@
 /* Mobile landscape gallery */
 
 @media only screen and (max-width: 949px) and (orientation: landscape) {
-
   .gallery {
-    height: calc(var(--vh, 1vh) * 100);
+    height: calc((var(--vh, 1vh) * 100) - 35px);
   }
 
   .gallery-spacer {
     display: none;
+  }
+  .gallery-swiper {
+    height: calc((var(--vh, 1vh) * 100) - 35px);
+    top: 35px;
   }
 }

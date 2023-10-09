@@ -15,6 +15,11 @@
 .loading-screen h3 {
   font-size: 5vw;
 }
+@media only screen and (max-width: 949px) and (orientation: landscape) {
+  .loading-screen {
+    height: calc((var(--vh, 1vh) * 100) - 35px);
+  }
+}
 
 @media only screen and (min-width: 950px) {
   .loading-screen h3 {
