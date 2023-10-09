@@ -1,0 +1,23 @@
+.loading-screen {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+
+  background-color: #272727;
+  border-radius: 5px;
+}
+
+.loading-screen h3 {
+  font-size: 5vw;
+}
+
+@media only screen and (min-width: 950px) {
+  .loading-screen h3 {
+    font-size: 3vw;
+  }
+}
