@@ -1,15 +1,15 @@
 const lifestyleHorizImages = [
   {
+    src: "/images/lifestyle/horizontal/christy 1.jpg",
+    alt: "skier in deep powder",
+  },
+  {
     src: "/images/lifestyle/horizontal/12hrs 3.jpeg",
     alt: "mountain bikers in a race",
   },
   {
     src: "/images/lifestyle/horizontal/BICO.jpg",
     alt: "two cyclists on a path",
-  },
-  {
-    src: "/images/lifestyle/horizontal/christy 1.jpg",
-    alt: "family on a patio",
   },
   {
     src: "/images/lifestyle/horizontal/Christy Patio 142299.jpg",

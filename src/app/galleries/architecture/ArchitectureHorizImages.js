@@ -1,15 +1,15 @@
 const archHorizImages = [
   {
+    src: "/images/architecture/horizontal/Christy_Boulder_10_23_13_7 webhor.webp",
+    alt: "Christy Sports storefront in Boulder Colorado"
+  },
+  {
     src: "/images/architecture/horizontal/1401Lawrence1.webp",
     alt: "reception area",
   },
   {
     src: "/images/architecture/horizontal/7595tecnology_1.webp",
     alt: "office waiting area",
-  },
-  {
-    src: "/images/architecture/horizontal/Christy_Boulder_10_23_13_7 webhor.webp",
-    alt: "Christy Sports storefront in Boulder Colorado"
   },
   {
     src: "/images/architecture/horizontal/Christy_Boulder_10_30_130489.webp",

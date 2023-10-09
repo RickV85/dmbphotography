@@ -1,14 +1,14 @@
 const productHorizImages = [
   {
+    src: "/images/product/horizontal/christy_bcpoint4.webp",
+    alt: "patio furniture with a mountain backdrop",
+  },
+  {
     src: "/images/product/horizontal/campy.webp",
     alt: "closeup of a campy bike cassette",
   },
   {
     src: "/images/product/horizontal/christy patio 1.webp",
-    alt: "patio furniture with a mountain backdrop",
-  },
-  {
-    src: "/images/product/horizontal/christy_bcpoint4.webp",
     alt: "patio furniture with a mountain backdrop",
   },
   {

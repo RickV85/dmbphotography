@@ -1,5 +1,9 @@
 const travelVertImages = [
   {
+    src: "/images/travel/vertical/florissanthornbek_916.webp",
+    alt: "starry night sky"
+  },
+  {
     src: "/images/travel/vertical/4014_916.jpg",
     alt: "steam engine in a field",
   },

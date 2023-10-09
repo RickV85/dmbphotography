@@ -1,11 +1,19 @@
 const travelHorizImages = [
   {
+    src: "/images/travel/horizontal/florissanthornbek_final.webp",
+    alt: "starry night sky",
+  },
+  {
     src: "/images/travel/horizontal/0398.webp",
     alt: "exotic bird with straw in mouth",
   },
   {
     src: "/images/travel/horizontal/4014.jpg",
     alt: "steam engine in a field",
+  },
+  {
+    src: "/images/travel/horizontal/viking22_book_265.webp",
+    alt: "serene waterfall",
   },
   {
     src: "/images/travel/horizontal/aquaaltavenezia.jpg",
@@ -24,10 +32,6 @@ const travelHorizImages = [
     alt: "sunset over a pebbly beach",
   },
   {
-    src: "/images/travel/horizontal/florissanthornbek_final.webp",
-    alt: "starry night sky",
-  },
-  {
     src: "/images/travel/horizontal/IMG_3362.webp",
     alt: "moonrise over water",
   },
@@ -36,16 +40,12 @@ const travelHorizImages = [
     alt: "ferris wheel at night",
   },
   {
-    src: "/images/travel/horizontal/superiordusk.jpg",
-    alt: "Superior Colorado at dusk",
+    src: "/images/travel/horizontal/antelope2up.jpeg",
+    alt: "2 image compilation of a desert canyon",
   },
   {
     src: "/images/travel/horizontal/taxicue2.jpg",
     alt: "blurred image of a passing taxi on a city street",
-  },
-  {
-    src: "/images/travel/horizontal/viking22_book_265.webp",
-    alt: "serene waterfall",
   },
   {
     src: "/images/travel/horizontal/XPRO6390.webp",
