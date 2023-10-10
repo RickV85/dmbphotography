@@ -42,10 +42,3 @@
 .swiper-lazy-preloader {
   border: 4px solid #5578b9 !important;
 }
-
-@media only screen and (max-width: 949px) and (orientation: landscape) {
-  .swiper {
-    height: calc((var(--vh, 1vh) * 100) - 35px);
-    margin: 0px;
-  }
-}
