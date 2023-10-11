@@ -6,7 +6,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "David M. Budd Photography",
-  description: "Photographer for hire in Denver, CO",
+  description: "Photographer for hire in Denver, Colorado",
+  keywords:
+    "Denver photography, architecture photography, product photography, affordable photography, contractual photography, Denver CO photography",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#272727" },
     { media: "(prefers-color-scheme: dark)", color: "#272727" },
