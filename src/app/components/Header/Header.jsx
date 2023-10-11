@@ -18,7 +18,7 @@ const mobileMenuItems = (
     <a href="/galleries/lifestyle">
       <h2 className={styles["menu-option"]}>Lifestyle</h2>
     </a>
-    <a href="/about">
+    <a href="/about_contact">
       <h2 className={styles["menu-option"]}>About/Contact</h2>
     </a>
   </>
@@ -68,7 +68,7 @@ const desktopMenuItems = (activeMenuItem) => (
       </h2>
     </a>
     <h2 className={styles["menu-option"]}>+</h2>
-    <a href="/about">
+    <a href="/about_contact">
       <h2
         className={`${styles["menu-option"]} ${
           activeMenuItem === "About/Contact"

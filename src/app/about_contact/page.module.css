@@ -1,0 +1,48 @@
+.about-main {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 85px;
+}
+
+.portrait-container {
+  width: 100vw;
+  height: 40vh;
+  position: relative;
+}
+
+.portrait-img {
+  object-fit: cover;
+}
+
+.bio-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bio-section p {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.name-div {
+  width: max-content;
+  margin: 20px 0px 20px 0px;
+}
+
+.name-header {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.name-hr {
+  background-color: #e4572e;
+  height: 2px;
+  border: none;
+}
+
+.contact-section {
+}
