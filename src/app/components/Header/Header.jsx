@@ -153,6 +153,8 @@ export default function Header({ sectionTitle }) {
     };
   }, [hamMenuOpen, handleClickOutside]);
 
+  // Do I really need this? Gallery components are setting this
+  // try deleting from this component
   useEffect(() => {
     const updateScreenWidth = () => {
       const vw = window.innerWidth;
@@ -183,7 +185,7 @@ export default function Header({ sectionTitle }) {
 
   return (
     <nav className={styles["nav-main"]}>
-      <div className={styles["nav-background"]}>
+      <div className={styles["nav-background"]} style={sectionTitle === "About/Contact" ? {"position": "relative"} : null}>
         <a href="/">
           <h1 className={styles["site-title"]}>David M. Budd Photography</h1>
         </a>
