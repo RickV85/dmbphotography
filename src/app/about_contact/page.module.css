@@ -58,3 +58,7 @@
   line-height: 25px;
   text-align: center;
 }
+
+.client-list {
+  width: 95vw;
+}

@@ -198,9 +198,9 @@ export default function Header({ sectionTitle }) {
             hamMenuOpen ? styles["open"] : ""
           }`}
         >
-          <hr className={styles["dropdown-divider"]}></hr>
+          <hr className={styles["dropdown-divider"]} />
           {mobileMenuItems}
-          <hr className={styles["dropdown-divider"]}></hr>
+          <hr className={styles["dropdown-divider"]} />
         </menu>
       ) : null}
     </nav>
