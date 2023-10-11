@@ -1,3 +1,5 @@
+// DELETE AFTER BUILD IF NOT USING
+
 import "./Loading.css";
 
 export default function Loading() {

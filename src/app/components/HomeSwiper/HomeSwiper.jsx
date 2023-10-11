@@ -21,6 +21,7 @@ export default function HomeSwiper({ images }) {
     // Could be updated to have multiple breakpoints and
     // make mobileRes a quality value. Maybe for tablets?
     const handleResizeMobileRes = () => {
+      if (!window) return;
       const width = window.innerWidth;
       const isMobile = width <= 750;
 
@@ -52,7 +53,7 @@ export default function HomeSwiper({ images }) {
   }, [homeImages]);
 
   useEffect(() => {
-    // Restarts swiper autoplay once first three images are loaded
+    // Starts swiper autoplay once first three images are loaded
     // Can delete the last console log after build
     if (
       [0, 1, 2].every((key) => loadedImgKeys.includes(key)) &&
