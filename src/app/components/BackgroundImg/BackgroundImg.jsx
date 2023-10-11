@@ -18,13 +18,6 @@ export default function BackgroundImg({ vertImg, horizImg }) {
       const isMobile = width <= 750;
 
       setMobileRes(isMobile);
-
-      // Can be deleted after development to eliminate logs while resizing
-      if (isMobile) {
-        console.log("Mobile resolution");
-      } else {
-        console.log("Desktop resolution");
-      }
     };
 
     handleResizeMobileRes();
