@@ -69,6 +69,14 @@
 }
 
 @media only screen and (min-width: 950px) {
+  .bio-section .portrait-container {
+    display: none;
+  }
+
+  .contact-section .portrait-container {
+    display: initial;
+  }
+
   .about-main {
     flex-direction: row-reverse;
     justify-content: center;
