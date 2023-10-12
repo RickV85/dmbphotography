@@ -49,7 +49,7 @@ export default function GallerySwiper({ images }) {
     // Starts swiper autoplay once the first three images are loaded
     // Can delete the last console log after build
     if (
-      [0, 1, 2].every((key) => loadedImgKeys.includes(key)) &&
+      [0, 1].every((key) => loadedImgKeys.includes(key)) &&
       swiperRef.current
     ) {
       if (!initialImgsLoaded) {
@@ -134,7 +134,7 @@ export default function GallerySwiper({ images }) {
             <SwiperSlide key={i}>
               <Image
                 fill={true}
-                priority={i <= 2 ? true : false}
+                priority={i <= 1 ? true : false}
                 quality={mobileRes ? 20 : 85}
                 src={img.src}
                 alt={img.alt}

@@ -48,7 +48,7 @@ export default function HomeSwiper({ images }) {
     // Starts swiper autoplay once first three images are loaded
     // Can delete the last console log after build
     if (
-      [0, 1, 2].every((key) => loadedImgKeys.includes(key)) &&
+      [0, 1].every((key) => loadedImgKeys.includes(key)) &&
       swiperRef.current
     ) {
       if (!initialImgsLoaded) {
@@ -111,7 +111,7 @@ export default function HomeSwiper({ images }) {
             <SwiperSlide key={i}>
               <Image
                 fill={true}
-                priority={i <= 2 ? true : false}
+                priority={i <= 1 ? true : false}
                 src={img.src}
                 alt={img.alt}
                 quality={mobileRes ? 20 : 85}
