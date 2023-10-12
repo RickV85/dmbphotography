@@ -73,18 +73,21 @@
   padding-left: 0px;
 }
 
+.clientListHeading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
 .client-list li {
-  font-size: 18px;
-  line-height: 25px;
-  font-family: "Georgia";
+  font-family: "Copperplate";
   font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 23px;
+  font-size: 20px;
+  font-weight: 300;
   color: #ffffff;
+  margin-bottom: 5px;
+  text-align: center;
 
   display: block;
-  margin-bottom: 0px;
 }
 
 .bio-section .portrait-container {
@@ -134,6 +137,6 @@
   }
 
   .portrait-img {
-    border-radius: 10px;
+    border-radius: 5px;
   }
 }

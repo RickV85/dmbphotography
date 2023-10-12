@@ -19,7 +19,7 @@ export default function AboutContact() {
             />
           </div>
           <div className={styles["name-div"]}>
-            <h3 className={styles["name-header"]}>David M. Budd</h3>
+            <h2 className={styles["name-header"]}>David M. Budd</h2>
             <hr className={styles["name-hr"]} />
           </div>
           <p>
@@ -39,8 +39,8 @@ export default function AboutContact() {
             Product, Lifestyle, and Travel. His cameras have taken him to jobs
             around the United States and worldwide.
           </p>
+          <h3 id="clientListHeading" className={styles["clientListHeading"]}>His clients include:</h3>
           <ul className={styles["client-list"]}>
-            <p>His clients include:</p>
             <li>Kieding Interior Architects</li>
             <li>Christy Sports</li>
             <li>Rocky Mountain Events</li>
@@ -65,7 +65,7 @@ export default function AboutContact() {
             />
           </div>
           <div className={styles["name-div"]}>
-            <h3 className={styles["name-header"]}>Contact</h3>
+            <h2 className={styles["name-header"]}>Contact</h2>
             <hr className={styles["name-hr"]} />
           </div>
           <address>
