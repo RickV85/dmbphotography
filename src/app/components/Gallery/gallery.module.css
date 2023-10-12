@@ -51,26 +51,30 @@
 
 /* Desktop / tablet landscape gallery */
 
-@media only screen and (min-width: 950px) {
+@media only screen and (min-width: 950px) and (orientation: landscape) {
   .gallery-swiper {
     height: calc((var(--vh, 1vh) * 100) - 105px);
+  }
+
+  .rotate-message-container {
+    display: none;
   }
 }
 
 /* Tablet portrait gallery */
 
-@media only screen and (min-width: 500px) and (max-width: 949px) and (orientation: portrait) {
+@media only screen and (min-width: 500px) and (orientation: portrait) {
   .rotate-message-container {
     font-size: 18px;
-    top: 90px;
+    top: 105px;
   }
 
   .gallery-swiper {
-    height: calc((var(--vh, 1vh) * 100) - 160px);
+    height: calc((var(--vh, 1vh) * 100) - 175px);
   }
 
   .gallery-spacer {
-    height: 117px;
+    height: 130px;
   }
 
   .section-title-container {
