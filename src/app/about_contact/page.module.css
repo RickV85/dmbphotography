@@ -26,6 +26,7 @@
 .bio-section p {
   font-size: 18px;
   line-height: 25px;
+  margin-bottom: 25px;
 }
 
 .name-div {
@@ -55,10 +56,14 @@
   font-family: 'Copperplate';
   font-size: 20px;
   font-weight: 300;
-  line-height: 25px;
+  margin-bottom: 25px;
   text-align: center;
 }
 
 .client-list {
   width: 95vw;
+}
+
+.client-list p {
+  margin-bottom: 0px;
 }

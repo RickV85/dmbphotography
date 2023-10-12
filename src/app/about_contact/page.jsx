@@ -34,39 +34,24 @@ export default function AboutContact() {
             Rottweiler), Oxford (an English Bulldog), and Willow (an Scottish
             Fold cat).
           </p>
-          <br />
           <p>
             David’s specialties include capturing images of Architecture,
             Product, Lifestyle, and Travel. His cameras have taken him to jobs
             around the United States and worldwide.
           </p>
-          <br />
           <div className={styles["client-list"]}>
-            <p>
-              His clients include:
-              <br />
-              <br />
-              Kieding Interior Architects
-              <br />
-              Christy Sports
-              <br />
-              Rocky Mountain Events
-              <br />
-              PMG Construction
-              <br />
-              Spiritual Directors International
-              <br />
-              iDesign Colorado
-              <br />
-              Jackson Associates
-              <br />
-              The Child’s World
-              <br />
-              Bicycle Colorado
-              <br />
-              NES Technology Holdings
-              <br />
-            </p>
+            <p>His clients include:</p>
+            <br />
+            <p>Kieding Interior Architects</p>
+            <p>Christy Sports</p>
+            <p>Rocky Mountain Events</p>
+            <p>PMG Construction</p>
+            <p>Spiritual Directors International</p>
+            <p>iDesign Colorado</p>
+            <p>Jackson Associates</p>
+            <p>The Child’s World</p>
+            <p>Bicycle Colorado</p>
+            <p>NES Technology Holdings</p>
           </div>
         </section>
         <section className={styles["contact-section"]}>
@@ -75,13 +60,11 @@ export default function AboutContact() {
             <hr className={styles["name-hr"]} />
           </div>
           <p>Based in Denver, Colorado</p>
-          <br />
           <p>(303) 807-8479</p>
-          <br />
-          <p>dbuddphoto@me.com</p>
-          <br />
+          <a href="mailto:">
+            <p>dbuddphoto@me.com</p>
+          </a>
           <p>Call or email me today to discuss your next project!</p>
-          <br />
         </section>
       </section>
     </>
