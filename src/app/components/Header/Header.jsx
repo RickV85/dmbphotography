@@ -7,19 +7,19 @@ import { Squash as Hamburger } from "hamburger-react";
 const mobileMenuItems = (
   <>
     <a href="/galleries/architecture">
-      <h2 className={styles["menu-option"]}>Architecture</h2>
+      <span className={styles["menu-option"]}>Architecture</span>
     </a>
     <a href="/galleries/product">
-      <h2 className={styles["menu-option"]}>Product</h2>
+      <span className={styles["menu-option"]}>Product</span>
     </a>
     <a href="/galleries/travel">
-      <h2 className={styles["menu-option"]}>Travel</h2>
+      <span className={styles["menu-option"]}>Travel</span>
     </a>
     <a href="/galleries/lifestyle">
-      <h2 className={styles["menu-option"]}>Lifestyle</h2>
+      <span className={styles["menu-option"]}>Lifestyle</span>
     </a>
     <a href="/about_contact">
-      <h2 className={styles["menu-option"]}>About/Contact</h2>
+      <span className={styles["menu-option"]}>About/Contact</span>
     </a>
   </>
 );
@@ -117,7 +117,7 @@ export default function Header({ sectionTitle }) {
                 color="#ffffff"
                 toggled={hamMenuOpen}
                 toggle={toggleHamMenu}
-                label="show menu items"
+                label="Open or close navigation menu"
               />
             </div>
           </>
@@ -125,7 +125,7 @@ export default function Header({ sectionTitle }) {
       case "desktop":
         return (
           <menu className={styles["desktop-menu"]}>
-            {desktopMenuItems(activeMenuItem)}
+            <nav>{desktopMenuItems(activeMenuItem)}</nav>
           </menu>
         );
       default:
@@ -184,8 +184,13 @@ export default function Header({ sectionTitle }) {
   }, [screenWidth]);
 
   return (
-    <nav className={styles["nav-main"]}>
-      <div className={styles["nav-background"]} style={sectionTitle === "About/Contact" ? {"position": "relative"} : null}>
+    <header className={styles["nav-main"]}>
+      <div
+        className={styles["nav-background"]}
+        style={
+          sectionTitle === "About/Contact" ? { position: "relative" } : null
+        }
+      >
         <a href="/">
           <h1 className={styles["site-title"]}>David M. Budd Photography</h1>
         </a>
@@ -199,10 +204,10 @@ export default function Header({ sectionTitle }) {
           }`}
         >
           <hr className={styles["dropdown-divider"]} />
-          {mobileMenuItems}
+          <nav className={styles["dropdown-nav"]}>{mobileMenuItems}</nav>
           <hr className={styles["dropdown-divider"]} />
         </menu>
       ) : null}
-    </nav>
+    </header>
   );
 }
