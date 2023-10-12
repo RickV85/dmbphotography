@@ -27,57 +27,57 @@ const mobileMenuItems = (
 const desktopMenuItems = (activeMenuItem) => (
   <>
     <a href="/galleries/architecture">
-      <h2
-        className={`${styles["menu-option"]} ${
+      <span
+        className={`${styles["menu-option"]} ${styles["link"]} ${
           activeMenuItem === "Architecture"
             ? styles["active-section-heading"]
             : ""
         }`}
       >
         Architecture
-      </h2>
+      </span>
     </a>
-    <h2 className={styles["menu-option"]}>+</h2>
+    <span className={styles["menu-option"]}>+</span>
     <a href="/galleries/product">
-      <h2
-        className={`${styles["menu-option"]} ${
+      <span
+        className={`${styles["menu-option"]} ${styles["link"]} ${
           activeMenuItem === "Product" ? styles["active-section-heading"] : ""
         }`}
       >
         Product
-      </h2>
+      </span>
     </a>
-    <h2 className={styles["menu-option"]}>+</h2>
+    <span className={styles["menu-option"]}>+</span>
     <a href="/galleries/travel">
-      <h2
-        className={`${styles["menu-option"]} ${
+      <span
+        className={`${styles["menu-option"]} ${styles["link"]} ${
           activeMenuItem === "Travel" ? styles["active-section-heading"] : ""
         }`}
       >
         Travel
-      </h2>
+      </span>
     </a>
-    <h2 className={styles["menu-option"]}>+</h2>
+    <span className={styles["menu-option"]}>+</span>
     <a href="/galleries/lifestyle">
-      <h2
-        className={`${styles["menu-option"]} ${
+      <span
+        className={`${styles["menu-option"]} ${styles["link"]} ${
           activeMenuItem === "Lifestyle" ? styles["active-section-heading"] : ""
         }`}
       >
         Lifestyle
-      </h2>
+      </span>
     </a>
-    <h2 className={styles["menu-option"]}>+</h2>
+    <span className={styles["menu-option"]}>+</span>
     <a href="/about_contact">
-      <h2
-        className={`${styles["menu-option"]} ${
+      <span
+        className={`${styles["menu-option"]} ${styles["link"]} ${
           activeMenuItem === "About/Contact"
             ? styles["active-section-heading"]
             : ""
         }`}
       >
         About/Contact
-      </h2>
+      </span>
     </a>
   </>
 );
@@ -153,8 +153,6 @@ export default function Header({ sectionTitle }) {
     };
   }, [hamMenuOpen, handleClickOutside]);
 
-  // Do I really need this? Gallery components are setting this
-  // try deleting from this component
   useEffect(() => {
     const updateScreenWidth = () => {
       const vw = window.innerWidth;
