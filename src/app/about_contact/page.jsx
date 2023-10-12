@@ -39,20 +39,19 @@ export default function AboutContact() {
             Product, Lifestyle, and Travel. His cameras have taken him to jobs
             around the United States and worldwide.
           </p>
-          <div className={styles["client-list"]}>
+          <ul className={styles["client-list"]}>
             <p>His clients include:</p>
-            <br />
-            <p>Kieding Interior Architects</p>
-            <p>Christy Sports</p>
-            <p>Rocky Mountain Events</p>
-            <p>PMG Construction</p>
-            <p>Spiritual Directors International</p>
-            <p>iDesign Colorado</p>
-            <p>Jackson Associates</p>
-            <p>The Child’s World</p>
-            <p>Bicycle Colorado</p>
-            <p>NES Technology Holdings</p>
-          </div>
+            <li>Kieding Interior Architects</li>
+            <li>Christy Sports</li>
+            <li>Rocky Mountain Events</li>
+            <li>PMG Construction</li>
+            <li>Spiritual Directors International</li>
+            <li>iDesign Colorado</li>
+            <li>Jackson Associates</li>
+            <li>The Child’s World</li>
+            <li>Bicycle Colorado</li>
+            <li>NES Technology Holdings</li>
+          </ul>
         </section>
         <section className={styles["contact-section"]}>
           <div className={styles["portrait-container"]}>
@@ -69,11 +68,11 @@ export default function AboutContact() {
             <h3 className={styles["name-header"]}>Contact</h3>
             <hr className={styles["name-hr"]} />
           </div>
-          <p>Based in Denver, Colorado</p>
-          <p>(303) 807-8479</p>
-          <a href="mailto:">
-            <p>dbuddphoto@me.com</p>
-          </a>
+          <address>
+            <p>Based in Denver, Colorado</p>
+            <p>(303) 807-8479</p>
+            <a href="mailto:">dbuddphoto@me.com</a>
+          </address>
           <p>Call or email me today to discuss your next project!</p>
         </section>
       </section>

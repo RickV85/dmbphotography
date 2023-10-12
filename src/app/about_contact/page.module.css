@@ -52,20 +52,47 @@
   margin: 20px 0px 10px 0px;
 }
 
-.contact-section p {
-  font-family: 'Copperplate';
+.contact-section p,
+.contact-section a {
+  font-family: "Copperplate";
+  font-style: normal;
   font-size: 20px;
   font-weight: 300;
+  color: #ffffff;
   margin-bottom: 25px;
   text-align: center;
 }
 
-.client-list {
-  width: 95vw;
+.contact-section address {
+  text-align: center;
+  margin-bottom: 25px;
 }
 
-.client-list p {
+.client-list {
+  width: 95vw;
+  padding-left: 0px;
+}
+
+.client-list li {
+  font-size: 18px;
+  line-height: 25px;
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: #ffffff;
+
+  display: block;
   margin-bottom: 0px;
+}
+
+.bio-section .portrait-container {
+  display: initial;
+}
+
+.contact-section .portrait-container {
+  display: none;
 }
 
 @media only screen and (min-width: 950px) {
