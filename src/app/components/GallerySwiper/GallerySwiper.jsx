@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import "./GallerySwiper.css";
-// import Loading from "../Loading/Loading";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
@@ -27,13 +26,6 @@ export default function GallerySwiper({ images }) {
       const isMobile = width <= 750;
 
       setMobileRes(isMobile);
-
-      // Can be deleted after development to eliminate logs while resizing
-      if (isMobile) {
-        console.log("Mobile resolution");
-      } else {
-        console.log("Desktop resolution");
-      }
     };
 
     handleResizeMobileRes();
@@ -151,8 +143,6 @@ export default function GallerySwiper({ images }) {
                 }}
               />
               <div className="swiper-lazy-preloader" />
-              {/* Delete if we stick with native spinner */}
-              {/* {loadedImgKeys.includes(i) ? null : <Loading />} */}
             </SwiperSlide>
           ))
         ) : (
