@@ -1,23 +1,51 @@
+"use client";
+
 import Image from "next/image";
 import Header from "../components/Header/Header";
 import styles from "./page.module.css";
+import { useEffect, useState } from "react";
 
 export default function AboutContact() {
+  const [mobileDisplay, setMobileDisplay] = useState(null);
+  useEffect(() => {
+    const determineDisplay = () => {
+      const vw = window.innerWidth;
+      if (vw >= 950) {
+        setMobileDisplay(false);
+      } else {
+        setMobileDisplay(true);
+      }
+    };
+    determineDisplay();
+
+    window.addEventListener("resize", determineDisplay);
+    window.addEventListener("orientation", determineDisplay);
+
+    return () => {
+      window.removeEventListener("resize", determineDisplay);
+      window.removeEventListener("orientation", determineDisplay);
+    };
+  }, []);
+
+  const portrait = (
+    <div className={styles["portrait-container"]}>
+      <Image
+        src={"/images/about_contact/xpro1self.jpg"}
+        alt={"David Budd self portrait"}
+        fill={true}
+        quality={50}
+        priority={true}
+        className={styles["portrait-img"]}
+      />
+    </div>
+  );
+
   return (
     <>
       <Header sectionTitle={"About/Contact"} />
       <section className={styles["about-main"]}>
-        <div className={styles["portrait-container"]}>
-          <Image
-            src={"/images/about_contact/xpro1self.jpg"}
-            alt={"David Budd self portrait"}
-            fill={true}
-            quality={50}
-            priority={true}
-            className={styles["portrait-img"]}
-          />
-        </div>
         <section className={styles["bio-section"]}>
+          {mobileDisplay ? portrait : null}
           <div className={styles["name-div"]}>
             <h3 className={styles["name-header"]}>David M. Budd</h3>
             <hr className={styles["name-hr"]} />
@@ -55,6 +83,7 @@ export default function AboutContact() {
           </div>
         </section>
         <section className={styles["contact-section"]}>
+          {mobileDisplay ? null : portrait}
           <div className={styles["name-div"]}>
             <h3 className={styles["name-header"]}>Contact</h3>
             <hr className={styles["name-hr"]} />

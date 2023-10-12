@@ -67,3 +67,38 @@
 .client-list p {
   margin-bottom: 0px;
 }
+
+@media only screen and (min-width: 950px) {
+  .about-main {
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+
+  .bio-section {
+    width: 45vw;
+    height: fit-content;
+    margin-left: 20px;
+  }
+
+  .client-list {
+    width: 45vw;
+  }
+
+  .contact-section {
+    width: 45vw;
+    height: fit-content;
+    margin-top: 25px;
+  }
+
+  .portrait-container {
+    width: 40vw;
+    max-width: 500px;
+    min-height: 300px;
+  }
+
+  .portrait-img {
+    border-radius: 10px;
+  }
+}
