@@ -97,15 +97,14 @@ export default function GallerySwiper({ images }) {
 
   useEffect(() => {
     const vw = window.innerWidth;
-      const vh = window.innerHeight;
-    if (initialImgsLoaded && vw < 950  && vh < 500) {
+    if (initialImgsLoaded && vw < 950) {
       setTimeout(() => {
         const layout = document.querySelector(".layout_main__ElgIk");
         const gallerySwiperDiv = document.querySelector(
           ".gallery_gallery-swiper__YzmVA"
         );
         if (gallerySwiperDiv && layout) {
-          console.log("mobile horiz scroll fired")
+          console.log("mobile horiz scroll fired");
           const rect = gallerySwiperDiv.getBoundingClientRect();
           layout.scrollTo({
             top: rect.top,
