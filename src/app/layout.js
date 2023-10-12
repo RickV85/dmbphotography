@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "David M. Budd Photography",
+  title: "Photographer | David M. Budd | Denver, Colorado",
   description: "Photographer for hire in Denver, Colorado",
   keywords:
     "Denver photography, architecture photography, product photography, affordable photography, contractual photography, Denver CO photography",
