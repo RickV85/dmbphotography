@@ -3,11 +3,13 @@ import styles from "./Footer.module.css";
 export default function Footer() {
   return (
     <footer className={styles["footer-background"]}>
-      <h3 className={styles["footer-copy"]}>Based in Denver, Colorado</h3>
-      <h3 className={styles["pipe-spacers"]}>|</h3>
-      <h3 className={styles["footer-copy"]}>{`(303) 807-8479`}</h3>
-      <h3 className={styles["pipe-spacers"]}>|</h3>
-      <h3 className={styles["footer-copy"]}>dbuddphoto@me.com</h3>
+      <address className={styles["footer-address"]}>
+        <span className={styles["footer-copy"]}>Based in Denver, Colorado</span>
+        <span className={styles["pipe-spacers"]}>|</span>
+        <span className={styles["footer-copy"]}>{`(303) 807-8479`}</span>
+        <span className={styles["pipe-spacers"]}>|</span>
+        <span className={styles["footer-copy"]}>dbuddphoto@me.com</span>
+      </address>
     </footer>
   );
 }

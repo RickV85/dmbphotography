@@ -4,12 +4,14 @@
   width: 100%;
   height: fit-content;
   z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.footer-address {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1px 0px 5px 0px;
-
-  background: rgba(0, 0, 0, 0.5);
 }
 
 .footer-copy {
@@ -23,8 +25,16 @@
   width: fit-content;
 }
 
+.footer-copy, .pipe-spacers {
+  font-family: 'Copperplate';
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  color: #FFFFFF;
+}
+
 @media only screen and (min-width: 575px) {
-  .footer-background {
+  .footer-address {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -32,7 +42,7 @@
   }
 
   .pipe-spacers {
-    display: block;
+    display: initial;
     margin: 0% 2% 0% 2%;
     font-size: 16px;
   }
