@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import "./HomeSwiper.css";
+import { createHandleResizeMobileRes } from "@/app/utils/utils";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -19,21 +20,24 @@ export default function HomeSwiper({ images }) {
   useEffect(() => {
     // Could be updated to have multiple breakpoints and
     // make mobileRes a quality value. Maybe for tablets?
-    const handleResizeMobileRes = () => {
-      if (!window) return;
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      const isMobile = width <= 550 && height < width;
-
-      setMobileRes(isMobile);
-    };
+    const handleResizeMobileRes = () =>
+      createHandleResizeMobileRes(
+        setMobileRes,
+        setHomeImages,
+        images.vert,
+        images.horiz
+      );
 
     handleResizeMobileRes();
 
     window.addEventListener("resize", handleResizeMobileRes);
+    window.addEventListener("orientation", handleResizeMobileRes);
 
-    return () => window.removeEventListener("resize", handleResizeMobileRes);
-  }, []);
+    return () => {
+      window.removeEventListener("resize", handleResizeMobileRes);
+      window.removeEventListener("orientation", handleResizeMobileRes);
+    };
+  }, [images.vert, images.horiz]);
 
   useEffect(() => {
     // Resets loading state when images swap from horiz
@@ -62,28 +66,22 @@ export default function HomeSwiper({ images }) {
   }, [loadedImgKeys, initialImgsLoaded]);
 
   useEffect(() => {
-    const updateVpSetImgs = () => {
+    const updateVp = () => {
       const vw = window.innerWidth * 0.01;
       const vh = window.innerHeight * 0.01;
 
       document.documentElement.style.setProperty("--vw", `${vw}px`);
       document.documentElement.style.setProperty("--vh", `${vh}px`);
-
-      if (vw > vh) {
-        setHomeImages(images.horiz);
-      } else {
-        setHomeImages(images.vert);
-      }
     };
 
-    updateVpSetImgs();
+    updateVp();
 
-    window.addEventListener("resize", updateVpSetImgs);
-    window.addEventListener("orientationchange", updateVpSetImgs);
+    window.addEventListener("resize", updateVp);
+    window.addEventListener("orientationchange", updateVp);
 
     return () => {
-      window.removeEventListener("resize", updateVpSetImgs);
-      window.removeEventListener("orientationchange", updateVpSetImgs);
+      window.removeEventListener("resize", updateVp);
+      window.removeEventListener("orientationchange", updateVp);
     };
   }, [images]);
 

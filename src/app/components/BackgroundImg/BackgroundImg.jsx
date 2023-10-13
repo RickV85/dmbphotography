@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./BackgroundImg.module.css";
 import { useState, useEffect } from "react";
+import { createHandleResizeMobileRes } from "@/app/utils/utils";
 
 export default function BackgroundImg({ vertImg, horizImg }) {
   const [backgroundImg, setBackgroundImg] = useState(undefined);
@@ -10,21 +11,13 @@ export default function BackgroundImg({ vertImg, horizImg }) {
   useEffect(() => {
     // Could be updated to have multiple breakpoints and
     // make mobileRes a quality value. Maybe for tablets?
-    // Could be a util func? Used in 3 places
-    const handleResizeMobileRes = () => {
-      if (!window) return;
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      const isMobile = width <= 550 && height < width;
-
-      setMobileRes(isMobile);
-
-      if (width > height) {
-        setBackgroundImg(horizImg);
-      } else {
-        setBackgroundImg(vertImg);
-      }
-    };
+    const handleResizeMobileRes = () =>
+      createHandleResizeMobileRes(
+        setMobileRes,
+        setBackgroundImg,
+        vertImg,
+        horizImg
+      );
 
     handleResizeMobileRes();
 
