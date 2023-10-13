@@ -3,7 +3,12 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import "./HomeSwiper.css";
-import { createHandleResizeMobileRes } from "@/app/utils/utils";
+import {
+  createHandleResizeMobileRes,
+  resetSwiperAndLoadingState,
+  startSwiperAfterImageLoad,
+  createUpdateViewport,
+} from "@/app/utils/utils";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -18,8 +23,6 @@ export default function HomeSwiper({ images }) {
   const swiperRef = useRef(null);
 
   useEffect(() => {
-    // Could be updated to have multiple breakpoints and
-    // make mobileRes a quality value. Maybe for tablets?
     const handleResizeMobileRes = () =>
       createHandleResizeMobileRes(
         setMobileRes,
@@ -40,48 +43,32 @@ export default function HomeSwiper({ images }) {
   }, [images.vert, images.horiz]);
 
   useEffect(() => {
-    // Resets loading state when images swap from horiz
-    // to vertical or vice versa. Images are reloaded
-    // at times when window is resized to match sizing.
-    setInitialImgsLoaded(false);
-    setLoadedImgKeys([]);
-    swiperRef.current.slideTo(0);
-    swiperRef.current.autoplay.stop();
+    resetSwiperAndLoadingState(
+      setInitialImgsLoaded,
+      setLoadedImgKeys,
+      swiperRef
+    );
   }, [homeImages]);
 
   useEffect(() => {
-    // Starts swiper autoplay once first three images are loaded
-    // Can delete the last console log after build
-    if (
-      [0, 1].every((key) => loadedImgKeys.includes(key)) &&
-      swiperRef.current
-    ) {
-      if (!initialImgsLoaded) {
-        setInitialImgsLoaded(true);
-        swiperRef.current.autoplay.start();
-        console.log("initial images loaded");
-      }
-    }
-    console.log(loadedImgKeys);
+    startSwiperAfterImageLoad(
+      loadedImgKeys,
+      initialImgsLoaded,
+      setInitialImgsLoaded,
+      swiperRef
+    );
   }, [loadedImgKeys, initialImgsLoaded]);
 
   useEffect(() => {
-    const updateVp = () => {
-      const vw = window.innerWidth * 0.01;
-      const vh = window.innerHeight * 0.01;
+    const updateViewport = () => createUpdateViewport();
+    updateViewport();
 
-      document.documentElement.style.setProperty("--vw", `${vw}px`);
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    };
-
-    updateVp();
-
-    window.addEventListener("resize", updateVp);
-    window.addEventListener("orientationchange", updateVp);
+    window.addEventListener("resize", updateViewport);
+    window.addEventListener("orientationchange", updateViewport);
 
     return () => {
-      window.removeEventListener("resize", updateVp);
-      window.removeEventListener("orientationchange", updateVp);
+      window.removeEventListener("resize", updateViewport);
+      window.removeEventListener("orientationchange", updateViewport);
     };
   }, [images]);
 

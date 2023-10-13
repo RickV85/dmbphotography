@@ -9,8 +9,6 @@ export default function BackgroundImg({ vertImg, horizImg }) {
   const [mobileRes, setMobileRes] = useState(true);
 
   useEffect(() => {
-    // Could be updated to have multiple breakpoints and
-    // make mobileRes a quality value. Maybe for tablets?
     const handleResizeMobileRes = () =>
       createHandleResizeMobileRes(
         setMobileRes,

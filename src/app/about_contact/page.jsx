@@ -10,11 +10,12 @@ export default function AboutContact() {
         <section className={styles["bio-section"]}>
           <div className={styles["portrait-container"]}>
             <Image
+              fill
               src={"/images/about_contact/xpro1self.jpg"}
+              sizes="(max-width: 949px) 100vw, 40vw"
               alt={"David Budd self portrait"}
-              fill={true}
-              quality={50}
               priority={true}
+              quality={50}
               className={styles["portrait-img"]}
             />
           </div>
