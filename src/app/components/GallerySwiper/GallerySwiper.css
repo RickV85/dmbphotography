@@ -9,7 +9,11 @@
   color: #ffffff !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   transform: scale(50%);
-  padding: 10px;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  padding: 30px;
 }
 
 .swiper-slide {

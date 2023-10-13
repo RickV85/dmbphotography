@@ -10,6 +10,12 @@
   transform: scale(50%);
 }
 
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  padding: 30px;
+}
+
+
 .swiper-slide {
   text-align: center;
   font-size: 18px;
