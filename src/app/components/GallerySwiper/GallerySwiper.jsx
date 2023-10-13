@@ -96,7 +96,6 @@ export default function GallerySwiper({ images }) {
           ".gallery_gallery-swiper__YzmVA"
         );
         if (gallerySwiperDiv && layout) {
-          console.log("mobile horiz scroll fired");
           const rect = gallerySwiperDiv.getBoundingClientRect();
           layout.scrollTo({
             top: rect.top,

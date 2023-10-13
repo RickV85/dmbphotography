@@ -1,10 +1,18 @@
 .rotate-message-container {
   height: fit-content;
   width: 100vw;
-  top: 87px;
+  top: 82px;
   position: absolute;
   z-index: 2;
+  text-align: center;
+}
 
+.rotate-message {
+  font-family: 'Copperplate';
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  color: #FFFFFF;
   font-size: 12px;
   text-shadow: 2px 2px 4px black;
 }
@@ -65,16 +73,19 @@
 
 @media only screen and (min-width: 500px) and (orientation: portrait) {
   .rotate-message-container {
+    top: 85px;
+  }
+
+  .rotate-message {
     font-size: 18px;
-    top: 105px;
   }
 
   .gallery-swiper {
-    height: calc((var(--vh, 1vh) * 100) - 175px);
+    height: calc((var(--vh, 1vh) * 100) - 150px);
   }
 
   .gallery-spacer {
-    height: 130px;
+    height: 110px;
   }
 
   .section-title-container {

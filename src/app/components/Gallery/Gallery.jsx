@@ -8,7 +8,7 @@ export default function Gallery({ galleryProps }) {
     <>
       <Header sectionTitle={galleryProps.sectionTitle} />
       <div className={styles["rotate-message-container"]}>
-        <h3>Best viewed in landscape - Rotate device</h3>
+        <span className={styles["rotate-message"]}>Best viewed in landscape - Rotate device</span>
       </div>
       <BackgroundImg
         vertImg={galleryProps.vertBackgroundImg}
