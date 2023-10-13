@@ -1,22 +1,25 @@
 // Could be updated to have multiple breakpoints and
 // make mobileRes a quality value. Maybe for tablets?
+// Type of conditionals added for issues in GallerySwiper
 export const createHandleResizeMobileRes = (
+  width,
+  height,
   setMobileRes,
   setImgs,
   vertImgs,
   horizImgs
 ) => {
-  if (!window) return;
-  const width = window.innerWidth;
-  const height = window.innerHeight;
   const isMobile = width <= 550 && height < width;
+  if (typeof setMobileRes === "function") {
+    setMobileRes(isMobile);
+  }
 
-  setMobileRes(isMobile);
-
-  if (width > height) {
-    setImgs(horizImgs);
-  } else {
-    setImgs(vertImgs);
+  if (typeof setImgs === "function") {
+    if (width > height) {
+      setImgs(horizImgs);
+    } else {
+      setImgs(vertImgs);
+    }
   }
 };
 

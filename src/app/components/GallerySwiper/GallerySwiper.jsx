@@ -24,22 +24,28 @@ export default function GallerySwiper({ images }) {
   const swiperRef = useRef(null);
 
   useEffect(() => {
-    const handleResizeMobileRes = () =>
-      createHandleResizeMobileRes(
+    const handleResizeMobileRes = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      return createHandleResizeMobileRes(
+        width,
+        height,
         setMobileRes,
         setGalleryImages,
         images.vert,
         images.horiz
       );
+    };
 
     handleResizeMobileRes();
 
     window.addEventListener("resize", handleResizeMobileRes);
-    window.addEventListener("orientation", handleResizeMobileRes);
+    window.addEventListener("orientationchange", handleResizeMobileRes);
 
     return () => {
       window.removeEventListener("resize", handleResizeMobileRes);
-      window.removeEventListener("orientation", handleResizeMobileRes);
+      window.removeEventListener("orientationchange", handleResizeMobileRes);
     };
   }, [images.vert, images.horiz]);
 

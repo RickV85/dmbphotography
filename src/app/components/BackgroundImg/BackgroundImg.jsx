@@ -9,13 +9,19 @@ export default function BackgroundImg({ vertImg, horizImg }) {
   const [mobileRes, setMobileRes] = useState(true);
 
   useEffect(() => {
-    const handleResizeMobileRes = () =>
-      createHandleResizeMobileRes(
+    const handleResizeMobileRes = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      return createHandleResizeMobileRes(
+        width,
+        height,
         setMobileRes,
         setBackgroundImg,
         vertImg,
         horizImg
       );
+    };
 
     handleResizeMobileRes();
 
