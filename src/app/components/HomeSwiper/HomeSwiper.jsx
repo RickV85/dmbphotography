@@ -22,7 +22,8 @@ export default function HomeSwiper({ images }) {
     const handleResizeMobileRes = () => {
       if (!window) return;
       const width = window.innerWidth;
-      const isMobile = width <= 750;
+      const height = window.innerHeight;
+      const isMobile = width <= 550 && height < width;
 
       setMobileRes(isMobile);
     };
@@ -110,7 +111,8 @@ export default function HomeSwiper({ images }) {
           homeImages.map((img, i) => (
             <SwiperSlide key={i}>
               <Image
-                fill={true}
+                fill
+                sizes={"100vw"}
                 priority={i <= 1 ? true : false}
                 src={img.src}
                 alt={img.alt}

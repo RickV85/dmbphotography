@@ -23,7 +23,8 @@ export default function GallerySwiper({ images }) {
     const handleResizeMobileRes = () => {
       if (!window) return;
       const width = window.innerWidth;
-      const isMobile = width <= 750;
+      const height = window.innerHeight;
+      const isMobile = width <= 550 && height > width;
 
       setMobileRes(isMobile);
     };
@@ -132,7 +133,9 @@ export default function GallerySwiper({ images }) {
           galleryImages.map((img, i) => (
             <SwiperSlide key={i}>
               <Image
-                fill={true}
+                fill
+                sizes={"85vw"}
+                as={"image"}
                 priority={i <= 1 ? true : false}
                 quality={mobileRes ? 20 : 85}
                 src={img.src}

@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 
 export default function BackgroundImg({ vertImg, horizImg }) {
   const [backgroundImg, setBackgroundImg] = useState(undefined);
-  const [backgroundImgDims, setBackgroundImgDims] = useState(undefined);
   const [mobileRes, setMobileRes] = useState(true);
 
   useEffect(() => {
@@ -15,59 +14,39 @@ export default function BackgroundImg({ vertImg, horizImg }) {
     const handleResizeMobileRes = () => {
       if (!window) return;
       const width = window.innerWidth;
-      const isMobile = width <= 750;
+      const height = window.innerHeight;
+      const isMobile = width <= 550 && height < width;
 
       setMobileRes(isMobile);
-    };
 
-    handleResizeMobileRes();
-
-    window.addEventListener("resize", handleResizeMobileRes);
-
-    return () => window.removeEventListener("resize", handleResizeMobileRes);
-  }, [backgroundImg]);
-
-  useEffect(() => {
-    const updateViewport = () => {
-      const vw = window.innerWidth * 0.01;
-      const vh = window.innerHeight * 0.01;
-
-      document.documentElement.style.setProperty("--vw", `${vw}px`);
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-
-      setBackgroundImgDims({
-        h: window.innerHeight,
-        w: window.innerWidth,
-      }); 
-
-      if (vw > vh) {
+      if (width > height) {
         setBackgroundImg(horizImg);
       } else {
         setBackgroundImg(vertImg);
       }
     };
 
-    updateViewport();
+    handleResizeMobileRes();
 
-    window.addEventListener("resize", updateViewport);
-    window.addEventListener("orientationchange", updateViewport);
+    window.addEventListener("resize", handleResizeMobileRes);
+    window.addEventListener("orientation", handleResizeMobileRes);
 
     return () => {
-      window.removeEventListener("resize", updateViewport);
-      window.removeEventListener("orientationchange", updateViewport);
+      window.removeEventListener("resize", handleResizeMobileRes);
+      window.removeEventListener("orientation", handleResizeMobileRes);
     };
-  }, [vertImg, horizImg]);
+  }, [backgroundImg, horizImg, vertImg]);
 
   return (
     <div className={styles["background-image-container"]}>
       {backgroundImg ? (
         <Image
+          fill
+          sizes={"100vw"}
           priority={true}
-          quality={mobileRes ? 15 : 65}
+          quality={mobileRes ? 20 : 65}
           src={backgroundImg.src}
           alt={backgroundImg.alt}
-          height={backgroundImgDims.h}
-          width={backgroundImgDims.w}
           className={styles["gallery-background-img"]}
         />
       ) : null}
