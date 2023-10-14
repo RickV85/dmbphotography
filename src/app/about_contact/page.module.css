@@ -23,7 +23,7 @@
   align-items: center;
 }
 
-.bio-section p {
+.bio-text {
   font-size: 18px;
   line-height: 25px;
   margin-bottom: 25px;
@@ -54,6 +54,7 @@
 
 .contact-section p,
 .contact-section a {
+  display: block;
   font-family: "Copperplate";
   font-style: normal;
   font-size: 20px;
@@ -98,6 +99,8 @@
   display: none;
 }
 
+
+/* Desktop layout */
 @media only screen and (min-width: 950px) {
   .bio-section .portrait-container {
     display: none;
@@ -138,5 +141,29 @@
 
   .portrait-img {
     border-radius: 5px;
+  }
+}
+
+/* Mobile only rules */
+@media only screen and (max-width: 949px) {
+  .pre-animate-hide {
+    opacity: 0;
+  }
+
+  .animate-in {
+    will-change: position, opacity;
+    position: relative;
+    animation: fadeMoveUp 1.75s ease-out both;
+  }
+
+  @keyframes fadeMoveUp {
+    from {
+      opacity: 0;
+      top: 20px;
+    }
+    to {
+      opacity: 1;
+      top: 0;
+    }
   }
 }

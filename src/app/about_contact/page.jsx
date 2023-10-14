@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Header from "../components/Header/Header";
 import styles from "./page.module.css";
+import AboutTextAnimator from "../components/AboutTextAnimator/AboutTextAnimator";
 
 export default function AboutContact() {
   return (
@@ -23,7 +24,7 @@ export default function AboutContact() {
             <h2 className={styles["name-header"]}>David M. Budd</h2>
             <hr className={styles["name-hr"]} />
           </div>
-          <p>
+          <p className={styles["bio-text"]}>
             David Budd’s passion for photography started with a gift from his
             father: a 1965 Nikon F that had belonged to his grandfather. After
             growing up in the Boston area, and living several years in Steamboat
@@ -35,24 +36,28 @@ export default function AboutContact() {
             Rottweiler), Oxford (an English Bulldog), and Willow (an Scottish
             Fold cat).
           </p>
-          <p>
+          <p className={styles["bio-text"]}>
             David’s specialties include capturing images of Architecture,
             Product, Lifestyle, and Travel. His cameras have taken him to jobs
             around the United States and worldwide.
           </p>
-          <h3 id="clientListHeading" className={styles["clientListHeading"]}>His clients include:</h3>
-          <ul className={styles["client-list"]}>
-            <li>Kieding Interior Architects</li>
-            <li>Christy Sports</li>
-            <li>Rocky Mountain Events</li>
-            <li>PMG Construction</li>
-            <li>Spiritual Directors International</li>
-            <li>iDesign Colorado</li>
-            <li>Jackson Associates</li>
-            <li>The Child’s World</li>
-            <li>Bicycle Colorado</li>
-            <li>NES Technology Holdings</li>
-          </ul>
+          <div id="clientDiv">
+            <h3 className={styles["clientListHeading"]}>
+              His clients include:
+            </h3>
+            <ul className={styles["client-list"]}>
+              <li>Kieding Interior Architects</li>
+              <li>Christy Sports</li>
+              <li>Rocky Mountain Events</li>
+              <li>PMG Construction</li>
+              <li>Spiritual Directors International</li>
+              <li>iDesign Colorado</li>
+              <li>Jackson Associates</li>
+              <li>The Child’s World</li>
+              <li>Bicycle Colorado</li>
+              <li>NES Technology Holdings</li>
+            </ul>
+          </div>
         </section>
         <section className={styles["contact-section"]}>
           <div className={styles["portrait-container"]}>
@@ -65,18 +70,19 @@ export default function AboutContact() {
               className={styles["portrait-img"]}
             />
           </div>
-          <div className={styles["name-div"]}>
+          <div id="contactHeading" className={styles["name-div"]}>
             <h2 className={styles["name-header"]}>Contact</h2>
             <hr className={styles["name-hr"]} />
           </div>
-          <address>
+          <address id="address">
             <p>Based in Denver, Colorado</p>
             <p>(303) 807-8479</p>
             <a href="mailto:">dbuddphoto@me.com</a>
+            <p>Call or email me today to discuss your next project!</p>
           </address>
-          <p>Call or email me today to discuss your next project!</p>
         </section>
       </section>
+      <AboutTextAnimator />
     </>
   );
 }
