@@ -85,6 +85,15 @@ export default function HomeSwiper({ images }) {
           swiperRef.current = swiper;
           console.log(swiper);
         }}
+        onInit={(swiper) => {
+          swiper.autoplay.stop();
+        }}
+        onSlideChange={(swiper) => {
+          if (swiper.activeIndex === 1) {
+            swiper.params.lazyPreloadPrevNext = 1;
+          }
+        }}
+        lazyPreloadPrevNext={0}
         modules={[Navigation, Autoplay]}
         className="mySwiper"
         navigation={true}
@@ -92,11 +101,7 @@ export default function HomeSwiper({ images }) {
           delay: 3000,
           disableOnInteraction: true,
         }}
-        lazyPreloadPrevNext={1}
         loop={true}
-        onInit={(swiper) => {
-          swiper.autoplay.stop();
-        }}
       >
         {homeImages ? (
           homeImages.map((img, i) => (

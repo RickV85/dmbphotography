@@ -121,6 +121,15 @@ export default function GallerySwiper({ images }) {
           swiperRef.current = swiper;
           console.log(swiper);
         }}
+        onInit={(swiper) => {
+          swiper.autoplay.stop();
+        }}
+        onSlideChange={(swiper) => {
+          if (swiper.activeIndex === 1) {
+            swiper.params.lazyPreloadPrevNext = 2;
+          }
+        }}
+        lazyPreloadPrevNext={0}
         modules={[Navigation, Autoplay, Pagination]}
         className="mySwiper"
         navigation={true}
@@ -130,11 +139,7 @@ export default function GallerySwiper({ images }) {
           delay: 3000,
           disableOnInteraction: true,
         }}
-        lazyPreloadPrevNext={2}
         loop={true}
-        onInit={(swiper) => {
-          swiper.autoplay.stop();
-        }}
       >
         {galleryImages ? (
           galleryImages.map((img, i) => (
