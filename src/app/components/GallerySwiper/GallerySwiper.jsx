@@ -81,15 +81,15 @@ export default function GallerySwiper({ images }) {
     };
   }, [images]);
 
-  // NEED TO FIX
-  // For some reason, this is not working on deployed
-  // site on a mobile device but does in a desktop browser
-  // The initial images loaded change from false to true after
-  // the resize might be the issue here.
+  // This detects a orientation change on a mobile device (vw < 950px
+  //  && landscape view) then fires an auto scroll to top of the gallery.
+  // Query selection based on class names rendered on DOM from modules.
   useEffect(() => {
     const autoScrollMobileHoriz = () => {
       const vw = window.innerWidth;
-      if (vw < 950) {
+      const horizDeviceOrientation =
+        window.screen.orientation.type === "landscape-primary";
+      if (vw < 950 && horizDeviceOrientation) {
         setTimeout(() => {
           const layout = document.querySelector(".layout_main__ElgIk");
           const gallerySwiperDiv = document.querySelector(
@@ -105,6 +105,8 @@ export default function GallerySwiper({ images }) {
         }, 750);
       }
     };
+
+    autoScrollMobileHoriz();
 
     window.addEventListener("orientationchange", autoScrollMobileHoriz);
 
