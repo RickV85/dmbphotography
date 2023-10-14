@@ -22,6 +22,8 @@ export default function GallerySwiper({ images }) {
   const [loadedImgKeys, setLoadedImgKeys] = useState([]);
   const [initialImgsLoaded, setInitialImgsLoaded] = useState(false);
   const swiperRef = useRef(null);
+  const layoutRef = useRef(null);
+  const galleryRef = useRef(null);
 
   useEffect(() => {
     const handleResizeMobileRes = () => {
@@ -79,24 +81,36 @@ export default function GallerySwiper({ images }) {
     };
   }, [images]);
 
+  // NEED TO FIX
+  // For some reason, this is not working on deployed
+  // site on a mobile device but does in a desktop browser
+  // The initial images loaded change from false to true after
+  // the resize might be the issue here.
   useEffect(() => {
-    const vw = window.innerWidth;
-    if (initialImgsLoaded && vw < 950) {
-      setTimeout(() => {
-        const layout = document.querySelector(".layout_main__ElgIk");
-        const gallerySwiperDiv = document.querySelector(
-          ".gallery_gallery-swiper__YzmVA"
-        );
-        if (gallerySwiperDiv && layout) {
-          const rect = gallerySwiperDiv.getBoundingClientRect();
-          layout.scrollTo({
-            top: rect.top,
-            behavior: "smooth",
-          });
-        }
-      }, 500);
-    }
-  }, [initialImgsLoaded, mobileRes]);
+    const autoScrollMobileHoriz = () => {
+      const vw = window.innerWidth;
+      if (vw < 950) {
+        setTimeout(() => {
+          const layout = document.querySelector(".layout_main__ElgIk");
+          const gallerySwiperDiv = document.querySelector(
+            ".gallery_gallery-swiper__YzmVA"
+          );
+          if (gallerySwiperDiv && layout) {
+            const rect = gallerySwiperDiv.getBoundingClientRect();
+            layout.scrollTo({
+              top: rect.top,
+              behavior: "smooth",
+            });
+          }
+        }, 750);
+      }
+    };
+
+    window.addEventListener("orientationchange", autoScrollMobileHoriz);
+
+    return () =>
+      window.removeEventListener("orientationchange", autoScrollMobileHoriz);
+  }, []);
 
   return (
     <>
@@ -114,7 +128,7 @@ export default function GallerySwiper({ images }) {
           delay: 3000,
           disableOnInteraction: true,
         }}
-        lazyPreloadPrevNext={3}
+        lazyPreloadPrevNext={2}
         loop={true}
         onInit={(swiper) => {
           swiper.autoplay.stop();
