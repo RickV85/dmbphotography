@@ -31,7 +31,3 @@
   height: 100%;
   object-fit: cover;
 }
-
-.swiper-lazy-preloader {
-  border: 4px solid #5578b9 !important;
-}
