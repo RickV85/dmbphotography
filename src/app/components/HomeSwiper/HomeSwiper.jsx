@@ -78,13 +78,6 @@ export default function HomeSwiper({ images }) {
     };
   }, [images]);
 
-  useEffect(() => {
-    document.documentElement.style.setProperty(
-      "--swiper-theme-color",
-      "#5578b9"
-    );
-  }, []);
-
   return (
     <>
       <Swiper

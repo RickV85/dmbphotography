@@ -114,13 +114,6 @@ export default function GallerySwiper({ images }) {
       window.removeEventListener("orientationchange", autoScrollMobileHoriz);
   }, []);
 
-  useEffect(() => {
-    document.documentElement.style.setProperty(
-      "--swiper-theme-color",
-      "#5578b9"
-    );
-  }, []);
-
   return (
     <>
       <Swiper

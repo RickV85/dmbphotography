@@ -55,3 +55,8 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* CSS Global Variables */
+:root {
+  --swiper-theme-color: #5578b9;
+}
