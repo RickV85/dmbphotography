@@ -2,13 +2,16 @@ import styles from "./gallery.module.css";
 import Header from "../../components/Header/Header";
 import GallerySwiper from "../../components/GallerySwiper/GallerySwiper";
 import BackgroundImg from "../BackgroundImg/BackgroundImg";
+import Footer from "../Footer/Footer";
 
 export default function Gallery({ galleryProps }) {
   return (
     <>
       <Header sectionTitle={galleryProps.sectionTitle} />
       <div className={styles["rotate-message-container"]}>
-        <span className={styles["rotate-message"]}>Best viewed in landscape - Rotate device</span>
+        <span className={styles["rotate-message"]}>
+          Best viewed in landscape - Rotate device
+        </span>
       </div>
       <BackgroundImg
         vertImg={galleryProps.vertBackgroundImg}
@@ -26,6 +29,17 @@ export default function Gallery({ galleryProps }) {
         </div>
         <div className={styles["section-title-container"]}>
           <h2>{galleryProps.sectionTitle}</h2>
+        </div>
+      </section>
+      <section className={styles["gallery-copy-section"]}>
+        {galleryProps.copy ? (
+          <div className={styles["gallery-copy-background"]}>
+            <p className={styles["gallery-copy"]}>{galleryProps.copy}</p>
+          </div>
+        ) : null}
+        <div style={{position: "relative !important"}}>
+        <Footer position={{position: "relative"}}/>
+
         </div>
       </section>
     </>

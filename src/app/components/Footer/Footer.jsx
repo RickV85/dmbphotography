@@ -1,8 +1,8 @@
 import styles from "./Footer.module.css";
 
-export default function Footer() {
+export default function Footer({ position }) {
   return (
-    <footer className={styles["footer-background"]}>
+    <footer style={position} className={styles["footer-background"]}>
       <address className={styles["footer-address"]}>
         <span className={styles["footer-copy"]}>Based in Denver, Colorado</span>
         <span className={styles["pipe-spacers"]}>|</span>
