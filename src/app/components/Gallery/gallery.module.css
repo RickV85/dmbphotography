@@ -23,6 +23,8 @@
   align-items: center;
   position: relative;
   z-index: 2;
+  width: 85%;
+  margin: auto;
 }
 
 .gallery-spacer {
@@ -30,7 +32,7 @@
 }
 
 .gallery-swiper {
-  width: 85vw;
+  width: 100%;
   height: calc((var(--vh, 1vh) * 100) - 135px);
   margin: 0vh auto 0vh auto;
   box-shadow: 1px 1px 11px 1px #000000c9;
@@ -58,7 +60,7 @@
   background-color: #2727295e;
   border-radius: 5px;
   position: relative;
-  width: calc(var(--vw, 1vw) * 85);
+  width: 85vw;
   margin: 0px auto 10px auto;
   padding: 10px;
 }

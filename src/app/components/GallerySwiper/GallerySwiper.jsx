@@ -91,28 +91,27 @@ export default function GallerySwiper({ images }) {
         window.screen.orientation.type === "landscape-primary";
       if (vw < 950 && horizDeviceOrientation) {
         setTimeout(() => {
-          const body = document.body;
-          const gallerySwiperDiv = document.querySelector(
-            ".gallery_gallery-swiper__YzmVA"
-          );
-          if (gallerySwiperDiv && body) {
+          const gallerySwiperDiv = document.querySelector(".gallery_gallery-swiper__YzmVA");
+          if (gallerySwiperDiv) {
             const rect = gallerySwiperDiv.getBoundingClientRect();
-            body.scrollTo({
-              top: rect.top,
+            const offsetTop = window.scrollY + rect.top;
+            window.scrollTo({
+              top: offsetTop,
               behavior: "smooth",
             });
           }
         }, 750);
       }
     };
-
+  
     autoScrollMobileHoriz();
-
+  
     window.addEventListener("orientationchange", autoScrollMobileHoriz);
-
-    return () =>
+  
+    return () => {
       window.removeEventListener("orientationchange", autoScrollMobileHoriz);
-  }, []);
+    };
+  }, []);  
 
   return (
     <>

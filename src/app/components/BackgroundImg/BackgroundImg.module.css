@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 1;
   height: calc(var(--vh, 1vh) * 100);
-  width: calc(var(--vw, 1vw) * 100);
+  width: 100vw;
 }
 
 .gallery-background-img {

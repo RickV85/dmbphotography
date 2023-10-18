@@ -57,14 +57,11 @@ export const startSwiperAfterImageLoad = (
   console.log(loadedImgKeys);
 };
 
-// Sets CSS variables for using inner H and W of viewport
+// Sets CSS variables for using inner height of viewport
 // Used to help keep page sized to only viewable area
 // not including the navigation bars on mobile
 export const createUpdateViewport = () => {
   if (!window) return;
-  const vw = window.innerWidth * 0.01;
   const vh = window.innerHeight * 0.01;
-
-  document.documentElement.style.setProperty("--vw", `${vw}px`);
   document.documentElement.style.setProperty("--vh", `${vh}px`);
 };
