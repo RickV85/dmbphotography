@@ -91,7 +91,7 @@ export default function GallerySwiper({ images }) {
         window.screen.orientation.type === "landscape-primary";
       if (vw < 950 && horizDeviceOrientation) {
         setTimeout(() => {
-          const body = document.querySelector(".__className_20951f")
+          const body = document.body;
           const gallerySwiperDiv = document.querySelector(
             ".gallery_gallery-swiper__YzmVA"
           );
