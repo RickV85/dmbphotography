@@ -37,10 +37,7 @@ export default function Gallery({ galleryProps }) {
             <p className={styles["gallery-copy"]}>{galleryProps.copy}</p>
           </div>
         ) : null}
-        <div style={{position: "relative !important"}}>
-        <Footer position={{position: "relative"}}/>
-
-        </div>
+        <Footer position={{ position: "relative" }} />
       </section>
     </>
   );

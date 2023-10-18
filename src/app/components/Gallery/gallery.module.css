@@ -50,6 +50,7 @@
 
 .gallery-copy-section {
   height: auto;
+  position: relative;
 }
 
 .gallery-copy-background {
@@ -125,5 +126,9 @@
   }
   .gallery-swiper {
     height: calc((var(--vh, 1vh) * 100));
+  }
+
+  .gallery-copy-section {
+    top: 35px;
   }
 }
