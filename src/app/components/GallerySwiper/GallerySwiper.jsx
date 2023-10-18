@@ -91,25 +91,17 @@ export default function GallerySwiper({ images }) {
         window.screen.orientation.type === "landscape-primary";
       if (vw < 950 && horizDeviceOrientation) {
         setTimeout(() => {
-          const layout = document.querySelector(".layout_main__ElgIk");
-          if (layout) {
-            console.log(layout.scrollTop)
-            layout.scrollTo({ top: 35, behavior: "smooth" });
-            setTimeout(() => {
-              console.log("After scroll:", layout.scrollTop);
-            }, 1000);
+          const body = document.querySelector(".__className_20951f")
+          const gallerySwiperDiv = document.querySelector(
+            ".gallery_gallery-swiper__YzmVA"
+          );
+          if (gallerySwiperDiv && body) {
+            const rect = gallerySwiperDiv.getBoundingClientRect();
+            body.scrollTo({
+              top: rect.top,
+              behavior: "smooth",
+            });
           }
-          // const gallerySwiperDiv = document.querySelector(
-          //   ".gallery_gallery-swiper__YzmVA"
-          // );
-          // if (gallerySwiperDiv && layout) {
-          //   const rect = gallerySwiperDiv.getBoundingClientRect();
-          //   console.log(rect)
-          //   layout.scrollTo({
-          //     top: rect.top,
-          //     behavior: "smooth",
-          //   });
-          // }
         }, 750);
       }
     };
