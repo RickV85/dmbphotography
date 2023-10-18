@@ -90,19 +90,26 @@ export default function GallerySwiper({ images }) {
       const horizDeviceOrientation =
         window.screen.orientation.type === "landscape-primary";
       if (vw < 950 && horizDeviceOrientation) {
-        console.log("FIRED")
         setTimeout(() => {
           const layout = document.querySelector(".layout_main__ElgIk");
-          const gallerySwiperDiv = document.querySelector(
-            ".gallery_gallery-swiper__YzmVA"
-          );
-          if (gallerySwiperDiv && layout) {
-            const rect = gallerySwiperDiv.getBoundingClientRect();
-            layout.scrollTo({
-              top: rect.top,
-              behavior: "smooth",
-            });
+          if (layout) {
+            console.log(layout.scrollTop)
+            layout.scrollTo({ top: 35, behavior: "smooth" });
+            setTimeout(() => {
+              console.log("After scroll:", layout.scrollTop);
+            }, 1000);
           }
+          // const gallerySwiperDiv = document.querySelector(
+          //   ".gallery_gallery-swiper__YzmVA"
+          // );
+          // if (gallerySwiperDiv && layout) {
+          //   const rect = gallerySwiperDiv.getBoundingClientRect();
+          //   console.log(rect)
+          //   layout.scrollTo({
+          //     top: rect.top,
+          //     behavior: "smooth",
+          //   });
+          // }
         }, 750);
       }
     };
