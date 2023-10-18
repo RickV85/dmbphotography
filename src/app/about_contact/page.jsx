@@ -28,13 +28,15 @@ export default function AboutContact() {
             David Budd’s passion for photography started with a gift from his
             father: a 1965 Nikon F that had belonged to his grandfather. After
             growing up in the Boston area, and living several years in Steamboat
-            Springs, Colorado, he moved to Santa Barbara, California to attend
+            Springs, Colorado, he moved to Santa Barbara, California, to attend
             the Brooks Institute of Photography. After graduating with a
-            bachelors degree in Color Technology/Illustration, he returned to
+            bachelor’s degree in Color Technology/Illustration, he returned to
             Colorado, settling in Denver in 1995. He lives on a not so quiet
             street with his wife Elizabeth (a writer and editor), Hubbell (a
-            Rottweiler), Oxford (an English Bulldog), and Willow (an Scottish
-            Fold cat).
+            Rottweiler, named after a Robert Redford character or a telescope,
+            depending on whom you ask), Oxford (an English Bulldog, named after
+            the Oxford comma), and Willow (an Scottish Fold cat, named that
+            because she’s lovely).
           </p>
           <p className={styles["bio-text"]}>
             David’s specialties include capturing images of Architecture,
