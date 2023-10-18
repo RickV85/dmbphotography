@@ -69,7 +69,6 @@
 }
 
 /* All landscape gallery */
-
 @media only screen and (orientation: landscape) {
   .rotate-message-container,
   .section-title-container {
@@ -82,7 +81,6 @@
 }
 
 /* Desktop / tablet landscape gallery */
-
 @media only screen and (min-width: 950px) and (orientation: landscape) {
   .gallery-swiper {
     height: calc((var(--vh, 1vh) * 100) - 105px);
@@ -90,7 +88,6 @@
 }
 
 /* Tablet portrait gallery */
-
 @media only screen and (min-width: 500px) and (orientation: portrait) {
   .rotate-message-container {
     top: 85px;
@@ -115,9 +112,8 @@
 }
 
 /* Mobile landscape gallery */
-
 @media only screen and (max-width: 949px) and (orientation: landscape) {
-.gallery-spacer {
+  .gallery-spacer {
     height: 35px;
   }
 
