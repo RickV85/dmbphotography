@@ -86,17 +86,16 @@ export default function GallerySwiper({ images }) {
   //  && landscape view) then fires an auto scroll to top of the gallery.
   // Query selection based on class names rendered on DOM from modules.
   useEffect(() => {
-    let lastOuterWidth = window.outerWidth;
-    let lastOuterHeight = window.outerHeight;
-
-    const autoScrollMobileHoriz = () => {
+    const autoScrollMobileLandscape = () => {
       setTimeout(() => {
         const vw = window.innerWidth;
         const vh = window.innerHeight;
+        const isLandscape = vw > vh;
+        const isMobileDevice = "ontouchstart" in window;
+        // DELETE THIS
+        console.log("FIRED autoScroll", isLandscape, isMobileDevice);
 
-        console.log("FIRED", vw, vh);
-
-        if (vw < 950 && vw > vh) {
+        if (vw < 950 && isLandscape && isMobileDevice) {
           const gallerySwiperDiv = document.querySelector(
             ".gallery_gallery-swiper__YzmVA"
           );
@@ -112,24 +111,14 @@ export default function GallerySwiper({ images }) {
       }, 750);
     };
 
-    const throttledAutoScroll = throttle(autoScrollMobileHoriz, 1000);
+    autoScrollMobileLandscape();
 
-    const handleResize = () => {
-      const currentOuterWidth = window.outerWidth;
-      const currentOuterHeight = window.outerHeight;
-
-      if (currentOuterWidth !== lastOuterWidth || currentOuterHeight !== lastOuterHeight) {
-        throttledAutoScroll();
-        lastOuterWidth = currentOuterWidth;
-        lastOuterHeight = currentOuterHeight;
-      }
-    };
-
-    throttledAutoScroll();
-
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", autoScrollMobileLandscape);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener(
+        "orientationchange",
+        autoScrollMobileLandscape
+      );
     };
   }, []);
 
