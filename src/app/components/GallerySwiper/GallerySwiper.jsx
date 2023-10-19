@@ -11,7 +11,6 @@ import {
 } from "@/app/utils/utils";
 import { throttle } from "lodash";
 
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -25,13 +24,10 @@ export default function GallerySwiper({ images }) {
   const [initialImgsLoaded, setInitialImgsLoaded] = useState(false);
   const swiperRef = useRef(null);
 
-
   useEffect(() => {
     const handleResizeMobileRes = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
-
-      console.log("FIRED")
 
       createHandleResizeMobileRes(
         width,
@@ -91,12 +87,16 @@ export default function GallerySwiper({ images }) {
   // Query selection based on class names rendered on DOM from modules.
   useEffect(() => {
     const autoScrollMobileHoriz = () => {
-      const vw = window.innerWidth;
-      const horizDeviceOrientation =
-        window.screen.orientation.type === "landscape-primary";
-      if (vw < 950 && horizDeviceOrientation) {
-        setTimeout(() => {
-          const gallerySwiperDiv = document.querySelector(".gallery_gallery-swiper__YzmVA");
+      setTimeout(() => {
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+
+        console.log("FIRED", vw, vh);
+
+        if (vw < 950 && vw > vh) {
+          const gallerySwiperDiv = document.querySelector(
+            ".gallery_gallery-swiper__YzmVA"
+          );
           if (gallerySwiperDiv) {
             const rect = gallerySwiperDiv.getBoundingClientRect();
             const offsetTop = window.scrollY + rect.top;
@@ -105,18 +105,20 @@ export default function GallerySwiper({ images }) {
               behavior: "smooth",
             });
           }
-        }, 750);
-      }
+        }
+      }, 750);
     };
-  
-    autoScrollMobileHoriz();
-  
-    window.addEventListener("orientationchange", autoScrollMobileHoriz);
-  
+
+    const throttledAutoScroll = throttle(autoScrollMobileHoriz, 1000);
+
+    throttledAutoScroll();
+
+    window.addEventListener("resize", throttledAutoScroll);
+
     return () => {
-      window.removeEventListener("orientationchange", autoScrollMobileHoriz);
+      window.removeEventListener("resize", throttledAutoScroll);
     };
-  }, []);  
+  }, []);
 
   return (
     <>
