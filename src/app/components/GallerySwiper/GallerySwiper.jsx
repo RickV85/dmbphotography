@@ -9,6 +9,8 @@ import {
   startSwiperAfterImageLoad,
   createUpdateViewport,
 } from "@/app/utils/utils";
+import { throttle } from "lodash";
+
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
@@ -22,15 +24,16 @@ export default function GallerySwiper({ images }) {
   const [loadedImgKeys, setLoadedImgKeys] = useState([]);
   const [initialImgsLoaded, setInitialImgsLoaded] = useState(false);
   const swiperRef = useRef(null);
-  const layoutRef = useRef(null);
-  const galleryRef = useRef(null);
+
 
   useEffect(() => {
     const handleResizeMobileRes = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      return createHandleResizeMobileRes(
+      console.log("FIRED")
+
+      createHandleResizeMobileRes(
         width,
         height,
         setMobileRes,
@@ -40,14 +43,16 @@ export default function GallerySwiper({ images }) {
       );
     };
 
-    handleResizeMobileRes();
+    const throttledResize = throttle(handleResizeMobileRes, 100);
 
-    window.addEventListener("resize", handleResizeMobileRes);
-    window.addEventListener("orientationchange", handleResizeMobileRes);
+    throttledResize();
+
+    window.addEventListener("resize", throttledResize);
+    window.addEventListener("orientationchange", throttledResize);
 
     return () => {
-      window.removeEventListener("resize", handleResizeMobileRes);
-      window.removeEventListener("orientationchange", handleResizeMobileRes);
+      window.removeEventListener("resize", throttledResize);
+      window.removeEventListener("orientationchange", throttledResize);
     };
   }, [images.vert, images.horiz]);
 
