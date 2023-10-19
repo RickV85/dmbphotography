@@ -86,6 +86,9 @@ export default function GallerySwiper({ images }) {
   //  && landscape view) then fires an auto scroll to top of the gallery.
   // Query selection based on class names rendered on DOM from modules.
   useEffect(() => {
+    let lastOuterWidth = window.outerWidth;
+    let lastOuterHeight = window.outerHeight;
+
     const autoScrollMobileHoriz = () => {
       setTimeout(() => {
         const vw = window.innerWidth;
@@ -111,12 +114,22 @@ export default function GallerySwiper({ images }) {
 
     const throttledAutoScroll = throttle(autoScrollMobileHoriz, 1000);
 
+    const handleResize = () => {
+      const currentOuterWidth = window.outerWidth;
+      const currentOuterHeight = window.outerHeight;
+
+      if (currentOuterWidth !== lastOuterWidth || currentOuterHeight !== lastOuterHeight) {
+        throttledAutoScroll();
+        lastOuterWidth = currentOuterWidth;
+        lastOuterHeight = currentOuterHeight;
+      }
+    };
+
     throttledAutoScroll();
 
-    window.addEventListener("resize", throttledAutoScroll);
-
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("resize", throttledAutoScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
