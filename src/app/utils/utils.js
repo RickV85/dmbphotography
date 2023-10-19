@@ -9,9 +9,13 @@ export const createHandleResizeMobileRes = (
   vertImgs,
   horizImgs
 ) => {
-  const isMobile = width <= 550 && height < width;
+  const isMobile = width <= 550;
   if (typeof setMobileRes === "function") {
-    setMobileRes(isMobile);
+    if (isMobile) {
+      setMobileRes(true);
+    } else if (!isMobile) {
+      setMobileRes(false);
+    }
   }
 
   if (typeof setImgs === "function") {
