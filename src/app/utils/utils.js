@@ -13,7 +13,7 @@ export const createHandleResizeMobileRes = (
   if (typeof setMobileRes === "function") {
     if (isMobile) {
       setMobileRes(true);
-    } else if (!isMobile) {
+    } else {
       setMobileRes(false);
     }
   }
