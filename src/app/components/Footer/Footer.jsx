@@ -8,7 +8,9 @@ export default function Footer({ position }) {
         <span className={styles["pipe-spacers"]}>|</span>
         <span className={styles["footer-copy"]}>{`(303) 807-8479`}</span>
         <span className={styles["pipe-spacers"]}>|</span>
-        <span className={styles["footer-copy"]}>dbuddphoto@me.com</span>
+        <a href="mailto:dbuddphoto@me.com">
+          <span className={styles["footer-copy"]}>dbuddphoto@me.com</span>
+        </a>
       </address>
     </footer>
   );
