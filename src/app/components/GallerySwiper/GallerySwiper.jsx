@@ -39,7 +39,7 @@ export default function GallerySwiper({ images }) {
       );
     };
 
-    const throttledResize = throttle(handleResizeMobileRes, 1500);
+    const throttledResize = throttle(handleResizeMobileRes, 500);
 
     throttledResize();
 
@@ -71,14 +71,15 @@ export default function GallerySwiper({ images }) {
 
   useEffect(() => {
     const updateViewport = () => createUpdateViewport();
-    updateViewport();
+    const throttleUpdateVp = throttle(updateViewport, 500)
+    throttleUpdateVp();
 
-    window.addEventListener("resize", updateViewport);
-    window.addEventListener("orientationchange", updateViewport);
+    window.addEventListener("resize", throttleUpdateVp);
+    window.addEventListener("orientationchange", throttleUpdateVp);
 
     return () => {
-      window.removeEventListener("resize", updateViewport);
-      window.removeEventListener("orientationchange", updateViewport);
+      window.removeEventListener("resize", throttleUpdateVp);
+      window.removeEventListener("orientationchange", throttleUpdateVp);
     };
   }, [images]);
 
