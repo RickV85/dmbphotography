@@ -39,7 +39,7 @@ export default function GallerySwiper({ images }) {
       );
     };
 
-    const throttledResize = throttle(handleResizeMobileRes, 100);
+    const throttledResize = throttle(handleResizeMobileRes, 1500);
 
     throttledResize();
 
