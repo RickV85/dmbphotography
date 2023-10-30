@@ -50,24 +50,8 @@
   text-shadow: 2px 2px 4px black;
 }
 
-.gallery-copy-section {
-  height: auto;
+.gallery-footer {
   position: relative;
-  z-index: 2;
-}
-
-.gallery-copy-background {
-  background-color: #2727295e;
-  border-radius: 5px;
-  position: relative;
-  width: 85vw;
-  margin: 0px auto 10px auto;
-  padding: 10px;
-}
-
-.gallery-copy {
-  white-space: pre-line;
-  text-shadow: 2px 2px 4px black;
 }
 
 /* All landscape gallery */
@@ -108,7 +92,6 @@
   }
 
   .section-title-container {
-    margin-bottom: 5px;
     font-size: 24px;
   }
 }

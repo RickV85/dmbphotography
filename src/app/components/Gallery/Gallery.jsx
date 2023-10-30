@@ -31,14 +31,7 @@ export default function Gallery({ galleryProps }) {
           <h2>{galleryProps.sectionTitle}</h2>
         </div>
       </section>
-      <section className={styles["gallery-copy-section"]}>
-        {galleryProps.copy ? (
-          <div className={styles["gallery-copy-background"]}>
-            <p className={styles["gallery-copy"]}>{galleryProps.copy}</p>
-          </div>
-        ) : null}
-        <Footer position={{ position: "relative" }} />
-      </section>
+      <Footer galleryStyling={true} galleryTitle={galleryProps.sectionTitle} />
     </>
   );
 }
