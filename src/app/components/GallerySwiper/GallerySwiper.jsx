@@ -9,6 +9,7 @@ import {
   startSwiperAfterImageLoad,
   createUpdateViewport,
 } from "@/app/utils/utils";
+import { throttle } from "lodash";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
@@ -22,15 +23,13 @@ export default function GallerySwiper({ images }) {
   const [loadedImgKeys, setLoadedImgKeys] = useState([]);
   const [initialImgsLoaded, setInitialImgsLoaded] = useState(false);
   const swiperRef = useRef(null);
-  const layoutRef = useRef(null);
-  const galleryRef = useRef(null);
 
   useEffect(() => {
     const handleResizeMobileRes = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      return createHandleResizeMobileRes(
+      createHandleResizeMobileRes(
         width,
         height,
         setMobileRes,
@@ -40,14 +39,16 @@ export default function GallerySwiper({ images }) {
       );
     };
 
-    handleResizeMobileRes();
+    const throttledResize = throttle(handleResizeMobileRes, 500);
 
-    window.addEventListener("resize", handleResizeMobileRes);
-    window.addEventListener("orientationchange", handleResizeMobileRes);
+    throttledResize();
+
+    window.addEventListener("resize", throttledResize);
+    window.addEventListener("orientationchange", throttledResize);
 
     return () => {
-      window.removeEventListener("resize", handleResizeMobileRes);
-      window.removeEventListener("orientationchange", handleResizeMobileRes);
+      window.removeEventListener("resize", throttledResize);
+      window.removeEventListener("orientationchange", throttledResize);
     };
   }, [images.vert, images.horiz]);
 
@@ -70,14 +71,15 @@ export default function GallerySwiper({ images }) {
 
   useEffect(() => {
     const updateViewport = () => createUpdateViewport();
-    updateViewport();
+    const throttleUpdateVp = throttle(updateViewport, 500)
+    throttleUpdateVp();
 
-    window.addEventListener("resize", updateViewport);
-    window.addEventListener("orientationchange", updateViewport);
+    window.addEventListener("resize", throttleUpdateVp);
+    window.addEventListener("orientationchange", throttleUpdateVp);
 
     return () => {
-      window.removeEventListener("resize", updateViewport);
-      window.removeEventListener("orientationchange", updateViewport);
+      window.removeEventListener("resize", throttleUpdateVp);
+      window.removeEventListener("orientationchange", throttleUpdateVp);
     };
   }, [images]);
 
@@ -85,33 +87,40 @@ export default function GallerySwiper({ images }) {
   //  && landscape view) then fires an auto scroll to top of the gallery.
   // Query selection based on class names rendered on DOM from modules.
   useEffect(() => {
-    const autoScrollMobileHoriz = () => {
-      const vw = window.innerWidth;
-      const horizDeviceOrientation =
-        window.screen.orientation.type === "landscape-primary";
-      if (vw < 950 && horizDeviceOrientation) {
-        setTimeout(() => {
-          const layout = document.querySelector(".layout_main__ElgIk");
+    const autoScrollMobileLandscape = () => {
+      setTimeout(() => {
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const isLandscape = vw > vh;
+        const isMobileDevice = "ontouchstart" in window;
+        // DELETE THIS
+        console.log("FIRED autoScroll", isLandscape, isMobileDevice);
+
+        if (vw < 950 && isLandscape && isMobileDevice) {
           const gallerySwiperDiv = document.querySelector(
             ".gallery_gallery-swiper__YzmVA"
           );
-          if (gallerySwiperDiv && layout) {
+          if (gallerySwiperDiv) {
             const rect = gallerySwiperDiv.getBoundingClientRect();
-            layout.scrollTo({
-              top: rect.top,
+            const offsetTop = window.scrollY + rect.top;
+            window.scrollTo({
+              top: offsetTop,
               behavior: "smooth",
             });
           }
-        }, 750);
-      }
+        }
+      }, 750);
     };
 
-    autoScrollMobileHoriz();
+    autoScrollMobileLandscape();
 
-    window.addEventListener("orientationchange", autoScrollMobileHoriz);
-
-    return () =>
-      window.removeEventListener("orientationchange", autoScrollMobileHoriz);
+    window.addEventListener("orientationchange", autoScrollMobileLandscape);
+    return () => {
+      window.removeEventListener(
+        "orientationchange",
+        autoScrollMobileLandscape
+      );
+    };
   }, []);
 
   return (
