@@ -14,6 +14,16 @@ export const metadata = {
     { media: "(prefers-color-scheme: dark)", color: "#272727" },
     { color: "#272727" },
   ],
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+  },
+  other: {
+    'google-site-verification': "PuE25LUJIVSsqY4ylCXSzBjMap71YGI5r1Fpm7Dp83o",
+    // <meta name="google-site-verification" content="PuE25LUJIVSsqY4ylCXSzBjMap71YGI5r1Fpm7Dp83o" />
+  },
+
 };
 
 export default function RootLayout({ children }) {
