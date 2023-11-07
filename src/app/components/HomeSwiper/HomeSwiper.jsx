@@ -83,7 +83,6 @@ export default function HomeSwiper({ images }) {
       <Swiper
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
-          console.log(swiper);
         }}
         onInit={(swiper) => {
           swiper.autoplay.stop();

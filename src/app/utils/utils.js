@@ -55,10 +55,8 @@ export const startSwiperAfterImageLoad = (
     if (!initialImgsLoaded) {
       setInitialImgsLoaded(true);
       swiperRef.current.autoplay.start();
-      console.log("initial images loaded");
     }
   }
-  console.log(loadedImgKeys);
 };
 
 // Sets CSS variables for using inner height of viewport

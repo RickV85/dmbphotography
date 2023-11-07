@@ -19,11 +19,6 @@ export const metadata = {
     follow: true,
     nocache: true,
   },
-  other: {
-    'google-site-verification': "PuE25LUJIVSsqY4ylCXSzBjMap71YGI5r1Fpm7Dp83o",
-    // <meta name="google-site-verification" content="PuE25LUJIVSsqY4ylCXSzBjMap71YGI5r1Fpm7Dp83o" />
-  },
-
 };
 
 export default function RootLayout({ children }) {
