@@ -83,7 +83,7 @@ export default function GallerySwiper({ images }) {
     };
   }, [images]);
 
-  // This detects a orientation change on a mobile device (vw < 950px
+  // This detects an orientation change on a mobile device (vw < 950px
   //  && landscape view) then fires an auto scroll to top of the gallery.
   // Query selection based on class names rendered on DOM from modules.
   useEffect(() => {
@@ -93,8 +93,6 @@ export default function GallerySwiper({ images }) {
         const vh = window.innerHeight;
         const isLandscape = vw > vh;
         const isMobileDevice = "ontouchstart" in window;
-        // DELETE THIS
-        console.log("FIRED autoScroll", isLandscape, isMobileDevice);
 
         if (vw < 950 && isLandscape && isMobileDevice) {
           const gallerySwiperDiv = document.querySelector(
@@ -128,7 +126,6 @@ export default function GallerySwiper({ images }) {
       <Swiper
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
-          console.log(swiper);
         }}
         onInit={(swiper) => {
           swiper.autoplay.stop();

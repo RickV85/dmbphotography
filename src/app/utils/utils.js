@@ -44,7 +44,6 @@ export const resetSwiperAndLoadingState = (
 };
 
 // Starts swiper autoplay once the initial images are loaded
-// Can delete the last console log after build
 export const startSwiperAfterImageLoad = (
   loadedImgKeys,
   initialImgsLoaded,
