@@ -108,6 +108,7 @@ export default function HomeSwiper({ images }) {
               <Image
                 fill
                 sizes={"100vw"}
+                as={"image"}
                 priority={i <= 1 ? true : false}
                 src={img.src}
                 alt={img.alt}
