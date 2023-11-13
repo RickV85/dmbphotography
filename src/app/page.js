@@ -11,7 +11,6 @@ export default function Home() {
     <main className={styles.main}>
       <Header />
       <HomeSwiper
-        className={styles.gallery}
         images={{horiz: homeHorizImages, vert: homeVertImages}}
       />
       <Footer />
