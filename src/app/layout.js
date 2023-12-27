@@ -9,17 +9,16 @@ export const metadata = {
   description: "Photographer for hire in Denver, Colorado",
   keywords:
     "Denver photography, architecture photography, product photography, affordable photography, contractual photography, Denver CO photography",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#272727" },
-    { media: "(prefers-color-scheme: dark)", color: "#272727" },
-    { color: "#272727" },
-  ],
   robots: {
     index: true,
     follow: true,
     nocache: true,
   },
 };
+
+export const viewport = {
+  themeColor: "#272727",
+}
 
 export default function RootLayout({ children }) {
   return (
