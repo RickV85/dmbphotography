@@ -14,11 +14,27 @@ export const metadata = {
     follow: true,
     nocache: true,
   },
+  authors: [{
+    name: "Rick Vermeil - Vermeil Web Solutions LLC",
+    url: "https://rickvermeil.com/freelance",
+  }],
+  generator: "Next.js",
+  metadataBase: new URL('https://www.davidmbuddphotography.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'David M. Budd Photography',
+    description: 'Portfolio site for David M. Budd Photography, a photographer for hire in Denver, Colorado.',
+    images: '/images/about_contact/xpro1self.jpg',
+    url: new URL('https://www.davidmbuddphotography.com'),
+    locale: "en_US",
+  },
 };
 
 export const viewport = {
   themeColor: "#272727",
-}
+};
 
 export default function RootLayout({ children }) {
   return (
