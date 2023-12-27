@@ -9,16 +9,34 @@ export const metadata = {
   description: "Photographer for hire in Denver, Colorado",
   keywords:
     "Denver photography, architecture photography, product photography, affordable photography, contractual photography, Denver CO photography",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#272727" },
-    { media: "(prefers-color-scheme: dark)", color: "#272727" },
-    { color: "#272727" },
-  ],
   robots: {
     index: true,
     follow: true,
     nocache: true,
   },
+  authors: [
+    {
+      name: "Rick Vermeil - Vermeil Web Solutions LLC",
+      url: "https://rickvermeil.com/freelance",
+    },
+  ],
+  generator: "Next.js",
+  metadataBase: new URL("https://www.davidmbuddphotography.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "David M. Budd Photography",
+    description:
+      "Portfolio site for David M. Budd Photography, a photographer for hire in Denver, Colorado.",
+    images: "/images/about_contact/xpro1self.jpg",
+    url: new URL("https://www.davidmbuddphotography.com"),
+    locale: "en_US",
+  },
+};
+
+export const viewport = {
+  themeColor: "#272727",
 };
 
 export default function RootLayout({ children }) {
