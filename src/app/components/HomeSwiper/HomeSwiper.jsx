@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
-import "./HomeSwiper.css";
+import Image from 'next/image';
+import { useState, useEffect, useRef } from 'react';
+import './HomeSwiper.css';
 import {
   createHandleResizeMobileRes,
   resetSwiperAndLoadingState,
   startSwiperAfterImageLoad,
   createUpdateViewport,
-} from "@/app/utils/utils";
+} from '@/app/utils/utils';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 export default function HomeSwiper({ images }) {
-  const [homeImages, setHomeImages] = useState(null);
+  const [homeImages, setHomeImages] = useState([]);
   const [mobileRes, setMobileRes] = useState(true);
   const [loadedImgKeys, setLoadedImgKeys] = useState([]);
   const [initialImgsLoaded, setInitialImgsLoaded] = useState(false);
@@ -33,97 +33,87 @@ export default function HomeSwiper({ images }) {
         setMobileRes,
         setHomeImages,
         images.vert,
-        images.horiz
+        images.horiz,
       );
     };
-    
+
     handleResizeMobileRes();
 
-    window.addEventListener("resize", handleResizeMobileRes);
-    window.addEventListener("orientationchange", handleResizeMobileRes);
+    window.addEventListener('resize', handleResizeMobileRes);
+    window.addEventListener('orientationchange', handleResizeMobileRes);
 
     return () => {
-      window.removeEventListener("resize", handleResizeMobileRes);
-      window.removeEventListener("orientationchange", handleResizeMobileRes);
+      window.removeEventListener('resize', handleResizeMobileRes);
+      window.removeEventListener('orientationchange', handleResizeMobileRes);
     };
   }, [images.vert, images.horiz]);
 
   useEffect(() => {
-    resetSwiperAndLoadingState(
-      setInitialImgsLoaded,
-      setLoadedImgKeys,
-      swiperRef
-    );
+    resetSwiperAndLoadingState(setInitialImgsLoaded, setLoadedImgKeys, swiperRef);
   }, [homeImages]);
 
   useEffect(() => {
-    startSwiperAfterImageLoad(
-      loadedImgKeys,
-      initialImgsLoaded,
-      setInitialImgsLoaded,
-      swiperRef
-    );
+    startSwiperAfterImageLoad(loadedImgKeys, initialImgsLoaded, setInitialImgsLoaded, swiperRef);
   }, [loadedImgKeys, initialImgsLoaded]);
 
   useEffect(() => {
     const updateViewport = () => createUpdateViewport();
     updateViewport();
 
-    window.addEventListener("resize", updateViewport);
-    window.addEventListener("orientationchange", updateViewport);
+    window.addEventListener('resize', updateViewport);
+    window.addEventListener('orientationchange', updateViewport);
 
     return () => {
-      window.removeEventListener("resize", updateViewport);
-      window.removeEventListener("orientationchange", updateViewport);
+      window.removeEventListener('resize', updateViewport);
+      window.removeEventListener('orientationchange', updateViewport);
     };
   }, [images]);
 
   return (
     <>
-      <Swiper
-        onSwiper={(swiper) => {
-          swiperRef.current = swiper;
-        }}
-        onInit={(swiper) => {
-          swiper.autoplay.stop();
-        }}
-        onSlideChange={(swiper) => {
-          if (swiper.activeIndex === 1) {
-            swiper.params.lazyPreloadPrevNext = 1;
-          }
-        }}
-        lazyPreloadPrevNext={0}
-        modules={[Navigation, Autoplay]}
-        className="mySwiper"
-        navigation={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: true,
-        }}
-        loop={true}
-      >
-        {homeImages ? (
-          homeImages.map((img, i) => (
+      {!!homeImages.length && (
+        <Swiper
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          onInit={(swiper) => {
+            swiper.autoplay.stop();
+          }}
+          onSlideChange={(swiper) => {
+            if (swiper.activeIndex === 1) {
+              swiper.params.lazyPreloadPrevNext = 1;
+            }
+          }}
+          lazyPreloadPrevNext={0}
+          modules={[Navigation, Autoplay]}
+          className="mySwiper"
+          navigation={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: true,
+          }}
+          loop={true}
+          slidesPerView={1}
+        >
+          {homeImages.map((img, i) => (
             <SwiperSlide key={i}>
               <Image
                 fill
-                sizes={"100vw"}
-                as={"image"}
+                sizes={'100vw'}
+                as={'image'}
                 priority={i <= 1 ? true : false}
                 src={img.src}
                 alt={img.alt}
                 quality={mobileRes ? 20 : 85}
-                onLoadingComplete={() => {
+                onLoad={() => {
                   setLoadedImgKeys((prevKeys) => [...prevKeys, i]);
                 }}
               />
               <div className="swiper-lazy-preloader" />
             </SwiperSlide>
-          ))
-        ) : (
-          <></>
-        )}
-      </Swiper>
+          ))}
+        </Swiper>
+      )}
     </>
   );
 }
